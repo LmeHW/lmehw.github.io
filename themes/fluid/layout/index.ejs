@@ -7,266 +7,276 @@ page.banner_img_height = theme.index.banner_img_height
 page.banner_mask_alpha = theme.index.banner_mask_alpha
 %>
 
+<% page.posts.each(function (post) { %>
+  <div class="row mx-auto index-card">
+    <% var post_url = url_for(post.path), index_img = post.index_img || theme.post.default_index_img %>
+    <% if (index_img) { %>
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="<%= post_url %>" target="<%- theme.index.post_url_target %>">
+          <img src="<%= url_for(index_img) %>" alt="<%= post.title %>">
+        </a>
+      </div>
+    <% } %>
+    <article class="col-12 col-md-<%= index_img ? '8' : '12' %> mx-auto index-info">
+      <h2 class="index-header">
+        <% if (theme.index.post_sticky && theme.index.post_sticky.enable && post.sticky > 0) { %>
+          <i class="index-pin <%= theme.index.post_sticky && theme.index.post_sticky.icon %>" title="Pin on top"></i>
+        <% } %>
+        <a href="<%= post_url %>" target="<%- theme.index.post_url_target %>">
+          <%= post.title %>
+        </a>
+      </h2>
+
+      <% var excerpt = post.description || post.excerpt || (theme.index.auto_excerpt.enable && !post.encrypt && post.content) %>
+      <a class="index-excerpt <%= index_img ? '' : 'index-excerpt__noimg' %>" href="<%= post_url %>" target="<%- theme.index.post_url_target %>">
+        <div>
+          <%- strip_html(excerpt).substring(0, 200).trim().replace(/\n/g, ' ') %>
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        <% if (theme.index.post_meta.date) { %>
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="<%= full_date(post.date, 'YYYY-MM-DD HH:mm') %>" pubdate>
+              <%- date(post.date, config.date_format) %>
+            </time>
+          </div>
+        <% } %>
+        <% if (theme.index.post_meta.category && post.categories.length > 0) { %>
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            <%- partial('_partials/category-chains', { categories: post.categories, limit: 1 }) %>
+          </div>
+        <% } %>
+        <% if (theme.index.post_meta.tag && post.tags.length > 0) { %>
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            <% post.tags.each(function(tag){ %>
+              <a href="<%= url_for(tag.path) %>">#<%- tag.name %></a>
+            <% }) %>
+          </div>
+        <% } %>
+      </div>
+    </article>
+  </div>
+<% }) %>
+
+<%- partial('_partials/paginator') %>
+
 <style>
-/* ── Home page — CSS variables (light mode) ─────────────────────── */
-:root {
-  --hi-text-primary:   #1e293b;
-  --hi-text-secondary: #475569;
-  --hi-text-date:      #64748b;
-  --hi-accent:         #1d4ed8;
-  --hi-accent-hover:   #1e40af;
-  --hi-card-bg:        #f8fafc;
-  --hi-card-border:    #e2e8f0;
-  --hi-card-shadow:    rgba(0,0,0,0.04);
-  --hi-card-shadow-hover: rgba(0,0,0,0.09);
-  --hi-tag-bg:         #dbeafe;
-  --hi-tag-color:      #1d4ed8;
-  --hi-tag-border:     #bfdbfe;
-  --hi-divider:        #e2e8f0;
-  --hi-cat-badge-bg:   #f1f5f9;
-  --hi-cat-badge-color:#475569;
+.home-explore {
+  margin-top: 3rem;
 }
 
-/* ── Dark mode — OS preference ──────────────────────────────────── */
-@media (prefers-color-scheme: dark) {
-  html:not([data-user-color-scheme='light']) {
-    --hi-text-primary:   #c4c6c9;
-    --hi-text-secondary: #a7a9ad;
-    --hi-text-date:      #6b7f92;
-    --hi-accent:         #5b8ef0;
-    --hi-accent-hover:   #7aaef5;
-    --hi-card-bg:        #252d38;
-    --hi-card-border:    #435266;
-    --hi-card-shadow:    rgba(0,0,0,0.20);
-    --hi-card-shadow-hover: rgba(0,0,0,0.30);
-    --hi-tag-bg:         #364151;
-    --hi-tag-color:      #5b8ef0;
-    --hi-tag-border:     #435266;
-    --hi-divider:        #435266;
-    --hi-cat-badge-bg:   #2e3848;
-    --hi-cat-badge-color:#a7a9ad;
-  }
-}
-
-/* ── Dark mode — Fluid toggle ───────────────────────────────────── */
-html[data-user-color-scheme='dark'] {
-  --hi-text-primary:   #c4c6c9;
-  --hi-text-secondary: #a7a9ad;
-  --hi-text-date:      #6b7f92;
-  --hi-accent:         #5b8ef0;
-  --hi-accent-hover:   #7aaef5;
-  --hi-card-bg:        #252d38;
-  --hi-card-border:    #435266;
-  --hi-card-shadow:    rgba(0,0,0,0.20);
-  --hi-card-shadow-hover: rgba(0,0,0,0.30);
-  --hi-tag-bg:         #364151;
-  --hi-tag-color:      #5b8ef0;
-  --hi-tag-border:     #435266;
-  --hi-divider:        #435266;
-  --hi-cat-badge-bg:   #2e3848;
-  --hi-cat-badge-color:#a7a9ad;
-}
-
-/* ── Layout ─────────────────────────────────────────────────────── */
-.hi-wrap {
-  max-width: 720px;
-  margin: 1.5rem auto 0;
-  padding-bottom: 2rem;
-}
-
-/* ── Section header ─────────────────────────────────────────────── */
-.hi-section { margin-bottom: 2.5rem; }
-
-.hi-section-header {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  margin-bottom: 1.1rem;
-  border-bottom: 1px solid var(--hi-divider);
-  padding-bottom: 0.5rem;
-}
-
-.hi-section-title {
-  font-size: 0.78rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--hi-text-primary);
-  margin: 0;
-}
-
-.hi-section-link {
-  font-size: 0.8rem;
-  color: var(--hi-accent);
-  text-decoration: none;
-  transition: color 0.15s;
-}
-.hi-section-link:hover { color: var(--hi-accent-hover); }
-
-.hi-section-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.85rem;
-  justify-content: flex-end;
-}
-
-/* ── Post cards ─────────────────────────────────────────────────── */
-.hi-posts-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.85rem;
-}
-
-.hi-post-card {
-  background: var(--hi-card-bg);
-  border: 1px solid var(--hi-card-border);
-  border-radius: 8px;
-  padding: 1rem 1.25rem;
-  box-shadow: 0 1px 3px var(--hi-card-shadow);
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
-}
-.hi-post-card:hover {
-  box-shadow: 0 4px 12px var(--hi-card-shadow-hover);
-  transform: translateY(-1px);
-}
-
-.hi-post-meta {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  margin-bottom: 0.35rem;
-}
-
-.hi-post-date {
-  font-size: 0.78rem;
-  color: var(--hi-text-date);
-}
-
-.hi-post-cat {
-  font-size: 0.72rem;
-  font-weight: 500;
-  background: var(--hi-cat-badge-bg);
-  color: var(--hi-cat-badge-color);
-  padding: 0.1em 0.55em;
-  border-radius: 3px;
-}
-
-.hi-post-title {
-  font-size: 1rem;
+.home-explore-heading {
+  font-size: 1.6rem;
   font-weight: 600;
-  margin: 0 0 0.35rem;
-  line-height: 1.4;
-}
-.hi-post-title a {
-  color: var(--hi-text-primary);
-  text-decoration: none;
-  transition: color 0.15s;
-}
-.hi-post-title a:hover { color: var(--hi-accent); }
-
-.hi-post-excerpt {
-  font-size: 0.875rem;
-  color: var(--hi-text-secondary);
-  line-height: 1.6;
-  margin: 0;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  line-height: 1.35;
+  margin: 0 0 0.75rem;
+  color: var(--text-color, #2f4154);
 }
 
-/* ── Divider ────────────────────────────────────────────────────── */
-.hi-hr {
-  border: none;
-  border-top: 1px solid var(--hi-divider);
-  margin: 2rem 0;
+.home-explore-intro {
+  margin: 0 0 1rem;
+  color: var(--sec-text-color, #5c6b77);
+  line-height: 1.8;
 }
 
-/* ── Tag browse ─────────────────────────────────────────────────── */
-.hi-tags-wrap {
+.home-explore-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.85rem;
+  margin: 0 0 1.25rem;
 }
 
-.hi-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3em;
-  padding: 0.3em 0.85em;
-  background: var(--hi-tag-bg);
-  color: var(--hi-tag-color);
-  border: 1px solid var(--hi-tag-border);
-  border-radius: 20px;
-  font-size: 0.82rem;
-  font-weight: 500;
+.home-explore-link {
+  color: var(--link-color, #1d4ed8);
   text-decoration: none;
-  transition: background 0.15s, color 0.15s, border-color 0.15s;
-}
-.hi-tag:hover {
-  background: var(--hi-accent);
-  color: #fff;
-  border-color: var(--hi-accent);
 }
 
-.hi-tag-count {
-  font-size: 0.72rem;
+.home-explore-link:hover {
+  text-decoration: underline;
+}
+
+.home-explore-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-bottom: 1.5rem;
+}
+
+.home-explore-tag {
+  appearance: none;
+  border: 1px solid var(--line-color, #d0d7de);
+  background: transparent;
+  color: var(--text-color, #2f4154);
+  border-radius: 999px;
+  padding: 0.38rem 0.95rem;
+  font-size: 0.9rem;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+
+.home-explore-tag:hover,
+.home-explore-tag.is-active {
+  background: transparent;
+  border-color: var(--link-hover-color, #1e40af);
+  color: var(--link-hover-color, #1e40af);
+}
+
+.home-explore-tag:focus-visible {
+  outline: 2px solid var(--link-hover-color, #1e40af);
+  outline-offset: 2px;
+}
+
+.home-explore-tag-count {
   opacity: 0.7;
 }
 
-/* ── Mobile ─────────────────────────────────────────────────────── */
-@media (max-width: 600px) {
-  .hi-post-card { padding: 0.85rem 1rem; }
+.home-explore-status {
+  margin: 0 0 1rem;
+  color: var(--sec-text-color, #5c6b77);
+  font-size: 0.95rem;
+}
+
+.home-explore-results .index-card {
+  transition: opacity 0.18s ease;
+}
+
+.home-explore-results .index-card.is-hidden {
+  display: none;
+}
+
+@media (max-width: 767.98px) {
+  .home-explore {
+    margin-top: 2.4rem;
+  }
 }
 </style>
 
-<div class="hi-wrap">
+<section class="home-explore">
+  <h2 class="home-explore-heading">Browse by Tag</h2>
+  <p class="home-explore-intro">Click a tag to filter posts directly on this page.</p>
 
-  <!-- ── Section 1: Recent Posts ─────────────────────────────────── -->
-  <div class="hi-section">
-    <div class="hi-section-header">
-      <h2 class="hi-section-title">Recent Posts</h2>
-      <div class="hi-section-links">
-        <a class="hi-section-link" href="<%= url_for('/archives/') %>">All Posts →</a>
-      </div>
-    </div>
-    <div class="hi-posts-list">
-      <% site.posts.sort('-date').limit(4).each(function(post) { %>
-        <div class="hi-post-card">
-          <div class="hi-post-meta">
-            <span class="hi-post-date"><%= date(post.date, 'YYYY-MM-DD') %></span>
-            <% if (post.categories.length > 0) { %>
-              <span class="hi-post-cat"><%= post.categories.first().name %></span>
+  <div class="home-explore-links">
+    <a class="home-explore-link" href="<%= url_for('/tags/') %>">All Tags</a>
+    <a class="home-explore-link" href="<%= url_for('/categories/') %>">Browse Categories</a>
+  </div>
+
+  <div class="home-explore-tags" id="home-explore-tags">
+    <button class="home-explore-tag is-active" type="button" data-tag="">
+      All <span class="home-explore-tag-count">· <%= site.posts.length %></span>
+    </button>
+    <% site.tags.sort('name').each(function(tag) { %>
+      <button class="home-explore-tag" type="button" data-tag="<%= encodeURIComponent(tag.name) %>">
+        <%= tag.name %> <span class="home-explore-tag-count">· <%= tag.length %></span>
+      </button>
+    <% }) %>
+  </div>
+
+  <p class="home-explore-status" id="home-explore-status">Showing all posts.</p>
+
+  <div class="home-explore-results" id="home-explore-results">
+    <% site.posts.sort('-date').each(function(post) { %>
+      <% var filtered_post_url = url_for(post.path), filtered_index_img = post.index_img || theme.post.default_index_img %>
+      <div class="row mx-auto index-card" data-tags="<%= post.tags.map(function(tag) { return encodeURIComponent(tag.name) }).join(' ') %>">
+        <% if (filtered_index_img) { %>
+          <div class="col-12 col-md-4 m-auto index-img">
+            <a href="<%= filtered_post_url %>" target="<%- theme.index.post_url_target %>">
+              <img src="<%= url_for(filtered_index_img) %>" alt="<%= post.title %>">
+            </a>
+          </div>
+        <% } %>
+        <article class="col-12 col-md-<%= filtered_index_img ? '8' : '12' %> mx-auto index-info">
+          <h2 class="index-header">
+            <a href="<%= filtered_post_url %>" target="<%- theme.index.post_url_target %>">
+              <%= post.title %>
+            </a>
+          </h2>
+
+          <% var filtered_excerpt = post.description || post.excerpt || (theme.index.auto_excerpt.enable && !post.encrypt && post.content) %>
+          <a class="index-excerpt <%= filtered_index_img ? '' : 'index-excerpt__noimg' %>" href="<%= filtered_post_url %>" target="<%- theme.index.post_url_target %>">
+            <div>
+              <%- strip_html(filtered_excerpt).substring(0, 200).trim().replace(/\n/g, ' ') %>
+            </div>
+          </a>
+
+          <div class="index-btm post-metas">
+            <% if (theme.index.post_meta.date) { %>
+              <div class="post-meta mr-3">
+                <i class="iconfont icon-date"></i>
+                <time datetime="<%= full_date(post.date, 'YYYY-MM-DD HH:mm') %>" pubdate>
+                  <%- date(post.date, config.date_format) %>
+                </time>
+              </div>
+            <% } %>
+            <% if (theme.index.post_meta.category && post.categories.length > 0) { %>
+              <div class="post-meta mr-3 d-flex align-items-center">
+                <i class="iconfont icon-category"></i>
+                <%- partial('_partials/category-chains', { categories: post.categories, limit: 1 }) %>
+              </div>
+            <% } %>
+            <% if (theme.index.post_meta.tag && post.tags.length > 0) { %>
+              <div class="post-meta">
+                <i class="iconfont icon-tags"></i>
+                <% post.tags.each(function(tag){ %>
+                  <a href="<%= url_for(tag.path) %>">#<%- tag.name %></a>
+                <% }) %>
+              </div>
             <% } %>
           </div>
-          <h3 class="hi-post-title">
-            <a href="<%= url_for(post.path) %>" target="<%= theme.index.post_url_target %>"><%= post.title %></a>
-          </h3>
-          <% var excerpt = post.description || post.excerpt || post.content || '' %>
-          <p class="hi-post-excerpt"><%- strip_html(excerpt).substring(0, 150).trim().replace(/\n/g, ' ') %></p>
-        </div>
-      <% }) %>
-    </div>
-  </div>
-
-  <hr class="hi-hr">
-
-  <!-- ── Section 2: Browse by Tag ────────────────────────────────── -->
-  <div class="hi-section">
-    <div class="hi-section-header">
-      <h2 class="hi-section-title">Browse by Tag</h2>
-      <div class="hi-section-links">
-        <a class="hi-section-link" href="<%= url_for('/tags/') %>">All Tags →</a>
-        <a class="hi-section-link" href="<%= url_for('/categories/') %>">Browse Categories →</a>
+        </article>
       </div>
-    </div>
-    <div class="hi-tags-wrap">
-      <% site.tags.sort('name').each(function(tag) { %>
-        <a class="hi-tag" href="<%= url_for(tag.path) %>">
-          <%= tag.name %><span class="hi-tag-count">· <%= tag.length %></span>
-        </a>
-      <% }) %>
-    </div>
+    <% }) %>
   </div>
+</section>
 
-</div>
+<script>
+  (function() {
+    var tagBar = document.getElementById('home-explore-tags');
+    var status = document.getElementById('home-explore-status');
+    var cards = Array.prototype.slice.call(document.querySelectorAll('#home-explore-results .index-card'));
+
+    if (!tagBar || !status || !cards.length) return;
+
+    function decodeTag(encodedTag) {
+      return encodedTag ? decodeURIComponent(encodedTag) : '';
+    }
+
+    function applyFilter(encodedTag) {
+      var visibleCount = 0;
+      var activeLabel = 'all posts';
+
+      Array.prototype.forEach.call(tagBar.querySelectorAll('.home-explore-tag'), function(button) {
+        button.classList.toggle('is-active', button.dataset.tag === encodedTag);
+        if (button.dataset.tag === encodedTag && encodedTag) {
+          activeLabel = decodeTag(encodedTag);
+        }
+      });
+
+      cards.forEach(function(card) {
+        var tags = card.dataset.tags ? card.dataset.tags.split(' ').filter(Boolean) : [];
+        var show = !encodedTag || tags.indexOf(encodedTag) !== -1;
+        card.classList.toggle('is-hidden', !show);
+        if (show) visibleCount += 1;
+      });
+
+      if (!encodedTag) {
+        status.textContent = 'Showing all posts.';
+        return;
+      }
+
+      status.textContent = visibleCount
+        ? 'Showing ' + visibleCount + ' post' + (visibleCount > 1 ? 's' : '') + ' tagged with "' + activeLabel + '".'
+        : 'No posts found for "' + activeLabel + '".';
+    }
+
+    tagBar.addEventListener('click', function(event) {
+      var button = event.target.closest('.home-explore-tag');
+      if (!button) return;
+      applyFilter(button.dataset.tag || '');
+    });
+  })();
+</script>
