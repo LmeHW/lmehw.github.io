@@ -16,7 +16,13 @@
       "Bash(sed -i '' 's|/img/probability/|/img/courses/probability/|g' Continuous-Random-Variables.md Joint-Ditribution.md probability.md)",
       "Bash(sips -s format png outdoors/skiing.HEIC --out outdoors/skiing.png)",
       "Bash(sips -s format png outdoors/hiking.HEIC --out outdoors/hiking.png)",
-      "Bash(sips -s format png creative/food.HEIC --out creative/food.png)"
+      "Bash(sips -s format png creative/food.HEIC --out creative/food.png)",
+      "Bash(grep -v \"^$\")",
+      "Bash(grep -l \"github\\\\|email\" /Users/huangwei/Documents/blog/node_modules/hexo-theme-fluid/source/css/*.css)",
+      "Bash(hexo generate:*)",
+      "Bash(npx hexo:*)",
+      "Bash(git stash:*)",
+      "Bash(node -e \"const hexo = require\\('/Users/huangwei/Documents/blog/node_modules/hexo/lib/hexo'\\); console.log\\('ok'\\)\")"
     ]
   }
 }

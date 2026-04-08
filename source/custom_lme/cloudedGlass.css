@@ -3,10 +3,29 @@
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
 }
+
+/* ── Sidebar — light mode ─────────────────────────────────────── */
 .sidebar {
-  color: #352828; /* 设置侧边栏中的文本颜色为黑色 */
+  color: #1e293b;
 }
 .sidebar a {
-  color: #000000; /* 设置侧边栏中所有链接的颜色为黑色 */
+  color: #1d4ed8;
 }
 
+/* ── Sidebar — dark mode (OS preference) ─────────────────────── */
+@media (prefers-color-scheme: dark) {
+  html:not([data-user-color-scheme='light']) .sidebar {
+    color: #c4c6c9;
+  }
+  html:not([data-user-color-scheme='light']) .sidebar a {
+    color: #5b8ef0;
+  }
+}
+
+/* ── Sidebar — dark mode (Fluid toggle) ──────────────────────── */
+html[data-user-color-scheme='dark'] .sidebar {
+  color: #c4c6c9;
+}
+html[data-user-color-scheme='dark'] .sidebar a {
+  color: #5b8ef0;
+}

@@ -1,5 +1,6 @@
 ---
 title: About
+layout: about
 date: 2024-04-16 18:17:18
 ---
 
@@ -49,6 +50,15 @@ html[data-user-color-scheme='dark'] {
 }
 
 /* ── Components ─────────────────────────────────────────────────── */
+.ab-intro-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--ab-text-primary);
+  margin: 0 0 0.75rem;
+  line-height: 1.4;
+  max-width: 680px;
+}
+
 .ab-intro {
   font-size: 1.05rem;
   line-height: 1.75;
@@ -192,6 +202,7 @@ html[data-user-color-scheme='dark'] {
 }
 </style>
 
+<h2 class="ab-intro-title">Hi, I'm Wei — a CS student who codes, moves, and explores.</h2>
 <p class="ab-intro">
   I believe sports and the outdoors shape who we are. My love for movement and nature keeps me curious and eager to learn. Staying physically active gives me the confidence to take on challenges, while a strong ability to learn allows me to stay calm and think clearly when facing any difficulties.
 </p>
@@ -232,7 +243,7 @@ html[data-user-color-scheme='dark'] {
   <div class="ab-art-card">
     <img class="ab-art-img" src="/img/about/creative/travel.JPG" alt="Travel">
     <div class="ab-art-body">
-      <p class="ab-art-label">Travel</p>
+      <p class="ab-art-label">✈️ Travel</p>
       <p class="ab-art-caption">Every new place rewires how I think — different landscapes, different people, different perspectives.</p>
     </div>
   </div>
@@ -240,7 +251,7 @@ html[data-user-color-scheme='dark'] {
   <div class="ab-art-card">
     <img class="ab-art-img" src="/img/about/creative/photography.JPG" alt="Photography">
     <div class="ab-art-body">
-      <p class="ab-art-label">Photography</p>
+      <p class="ab-art-label">📷 Photography</p>
       <p class="ab-art-caption">Learning to see the world more carefully, one frame at a time.</p>
     </div>
   </div>
@@ -248,7 +259,7 @@ html[data-user-color-scheme='dark'] {
   <div class="ab-art-card">
     <img class="ab-art-img" src="/img/about/creative/food.png" alt="Food">
     <div class="ab-art-body">
-      <p class="ab-art-label">Food</p>
+      <p class="ab-art-label">🍜 Food</p>
       <p class="ab-art-caption">The best way to understand a culture — always curious, always hungry.</p>
     </div>
   </div>
@@ -271,7 +282,7 @@ html[data-user-color-scheme='dark'] {
   </div>
 
   <div class="ab-art-card">
-    <img class="ab-art-img" src="/img/about/outdoors/skiing.png" alt="Skiing">
+    <img class="ab-art-img" src="/img/about/outdoors/skiing.png" alt="Skiing" style="object-position: top;">
     <div class="ab-art-body">
       <p class="ab-art-label">⛷️ Skiing</p>
       <p class="ab-art-caption">Speed, balance, and the mountain — where I feel most alive in winter.</p>
