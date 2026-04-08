@@ -4,6 +4,72 @@ date: 2024-04-16 18:17:18
 ---
 
 <style>
+/* ── Projects page — CSS variables (light mode defaults) ─────────── */
+:root {
+  --pj-accent:         #1d4ed8;
+  --pj-text-primary:   #1e293b;
+  --pj-text-secondary: #475569;
+  --pj-text-date:      #64748b;
+  --pj-card-bg:        #ffffff;
+  --pj-card-border:    #e2e8f0;
+  --pj-card-shadow:    rgba(0,0,0,0.06);
+  --pj-card-shadow-hover: rgba(0,0,0,0.10);
+  --pj-tag-bg:         #dbeafe;
+  --pj-tag-color:      #1d4ed8;
+  --pj-btn-primary-bg: #1e293b;
+  --pj-btn-primary-hover: #0f172a;
+  --pj-btn-outline-bg-hover: #dbeafe;
+  --pj-btn-outline-hover-color: #1e3a8a;
+  --pj-placeholder-bg: #f1f5f9;
+  --pj-placeholder-fg: #94a3b8;
+  --pj-placeholder-border: #cbd5e1;
+}
+
+/* ── Dark mode — OS preference ───────────────────────────────────── */
+@media (prefers-color-scheme: dark) {
+  html:not([data-user-color-scheme='light']) {
+    --pj-accent:         #5b8ef0;
+    --pj-text-primary:   #c4c6c9;
+    --pj-text-secondary: #a7a9ad;
+    --pj-text-date:      #6b7f92;
+    --pj-card-bg:        #252d38;
+    --pj-card-border:    #435266;
+    --pj-card-shadow:    rgba(0,0,0,0.25);
+    --pj-card-shadow-hover: rgba(0,0,0,0.35);
+    --pj-tag-bg:         #364151;
+    --pj-tag-color:      #5b8ef0;
+    --pj-btn-primary-bg: #3d5166;
+    --pj-btn-primary-hover: #4a6278;
+    --pj-btn-outline-bg-hover: #364151;
+    --pj-btn-outline-hover-color: #7aaef5;
+    --pj-placeholder-bg: #2e3848;
+    --pj-placeholder-fg: #687582;
+    --pj-placeholder-border: #435266;
+  }
+}
+
+/* ── Dark mode — Fluid toggle ────────────────────────────────────── */
+html[data-user-color-scheme='dark'] {
+  --pj-accent:         #5b8ef0;
+  --pj-text-primary:   #c4c6c9;
+  --pj-text-secondary: #a7a9ad;
+  --pj-text-date:      #6b7f92;
+  --pj-card-bg:        #252d38;
+  --pj-card-border:    #435266;
+  --pj-card-shadow:    rgba(0,0,0,0.25);
+  --pj-card-shadow-hover: rgba(0,0,0,0.35);
+  --pj-tag-bg:         #364151;
+  --pj-tag-color:      #5b8ef0;
+  --pj-btn-primary-bg: #3d5166;
+  --pj-btn-primary-hover: #4a6278;
+  --pj-btn-outline-bg-hover: #364151;
+  --pj-btn-outline-hover-color: #7aaef5;
+  --pj-placeholder-bg: #2e3848;
+  --pj-placeholder-fg: #687582;
+  --pj-placeholder-border: #435266;
+}
+
+/* ── Components ──────────────────────────────────────────────────── */
 .projects-grid {
   display: flex;
   flex-direction: column;
@@ -13,16 +79,16 @@ date: 2024-04-16 18:17:18
 }
 
 .project-card {
-  background: #ffffff;
-  border: 1px solid #e0e4ea;
+  background: var(--pj-card-bg);
+  border: 1px solid var(--pj-card-border);
   border-radius: 8px;
   padding: 1.5rem 1.75rem;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 1px 4px var(--pj-card-shadow);
   transition: box-shadow 0.2s ease;
 }
 
 .project-card:hover {
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.10);
+  box-shadow: 0 3px 12px var(--pj-card-shadow-hover);
 }
 
 .project-header {
@@ -37,21 +103,21 @@ date: 2024-04-16 18:17:18
 .project-title {
   font-size: 1.05rem;
   font-weight: 600;
-  color: #2c3e50;
+  color: var(--pj-text-primary);
   margin: 0;
   line-height: 1.4;
 }
 
 .project-date {
   font-size: 0.8rem;
-  color: #8a9bac;
+  color: var(--pj-text-date);
   white-space: nowrap;
   flex-shrink: 0;
 }
 
 .project-desc {
   font-size: 0.92rem;
-  color: #5a6a7a;
+  color: var(--pj-text-secondary);
   line-height: 1.65;
   margin: 0 0 1rem;
 }
@@ -66,8 +132,8 @@ date: 2024-04-16 18:17:18
 .tag {
   display: inline-block;
   padding: 0.2em 0.65em;
-  background: #eef2fa;
-  color: #2a5298;
+  background: var(--pj-tag-bg);
+  color: var(--pj-tag-color);
   border-radius: 20px;
   font-size: 0.78rem;
   font-weight: 500;
@@ -92,75 +158,30 @@ date: 2024-04-16 18:17:18
 }
 
 .btn-primary {
-  background: #2c3e50;
+  background: var(--pj-btn-primary-bg);
   color: #ffffff;
-  border: 1px solid #2c3e50;
+  border: 1px solid var(--pj-btn-primary-bg);
 }
 
 .btn-primary:hover {
-  background: #1e2d3d;
-  border-color: #1e2d3d;
+  background: var(--pj-btn-primary-hover);
+  border-color: var(--pj-btn-primary-hover);
   color: #ffffff;
 }
 
 .btn-outline {
   background: transparent;
-  color: #2a5298;
-  border: 1px solid #2a5298;
+  color: var(--pj-accent);
+  border: 1px solid var(--pj-accent);
 }
 
 .btn-outline:hover {
-  background: #eef2fa;
-  color: #1e3f80;
-  border-color: #1e3f80;
+  background: var(--pj-btn-outline-bg-hover);
+  color: var(--pj-btn-outline-hover-color);
+  border-color: var(--pj-btn-outline-hover-color);
 }
 
-/* Dark mode */
-@media (prefers-color-scheme: dark) {
-  .project-card {
-    background: #252d38;
-    border-color: #435266;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
-  }
-
-  .project-card:hover {
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.35);
-  }
-
-  .project-title { color: #c4c6c9; }
-  .project-date  { color: #6b7f92; }
-  .project-desc  { color: #a7a9ad; }
-
-  .tag {
-    background: #364151;
-    color: #5b8ef0;
-  }
-
-  .btn-primary {
-    background: #3d5166;
-    border-color: #3d5166;
-    color: #e8ecf0;
-  }
-
-  .btn-primary:hover {
-    background: #4a6278;
-    border-color: #4a6278;
-    color: #ffffff;
-  }
-
-  .btn-outline {
-    color: #5b8ef0;
-    border-color: #5b8ef0;
-  }
-
-  .btn-outline:hover {
-    background: #364151;
-    color: #7aaef5;
-    border-color: #7aaef5;
-  }
-}
-
-/* Project image */
+/* ── Project image ───────────────────────────────────────────────── */
 .project-img-wrap {
   margin: 0.75rem 0 1rem;
   border-radius: 6px;
@@ -176,34 +197,20 @@ date: 2024-04-16 18:17:18
 
 .project-img-placeholder {
   height: 160px;
-  background: #f4f5f7;
+  background: var(--pj-placeholder-bg);
   border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 0.82rem;
-  color: #b0bac4;
-  border: 1px dashed #d0d6de;
+  color: var(--pj-placeholder-fg);
+  border: 1px dashed var(--pj-placeholder-border);
 }
 
-@media (prefers-color-scheme: dark) {
-  .project-img-placeholder {
-    background: #2e3848;
-    color: #687582;
-    border-color: #435266;
-  }
-}
-
-/* Mobile */
+/* ── Mobile ──────────────────────────────────────────────────────── */
 @media (max-width: 600px) {
-  .project-card {
-    padding: 1.2rem 1.25rem;
-  }
-
-  .project-header {
-    flex-direction: column;
-    gap: 0.2rem;
-  }
+  .project-card { padding: 1.2rem 1.25rem; }
+  .project-header { flex-direction: column; gap: 0.2rem; }
 }
 </style>
 

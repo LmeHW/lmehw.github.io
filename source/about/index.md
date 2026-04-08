@@ -4,12 +4,55 @@ date: 2024-04-16 18:17:18
 ---
 
 <style>
-/* ── About page — namespace: ab- ────────────────────────────────── */
+/* ── About page — CSS variables (light mode defaults) ───────────── */
+:root {
+  --ab-accent:          #1d4ed8;   /* vivid blue, clearly visible on white */
+  --ab-dot-border:      #ffffff;
+  --ab-text-primary:    #1e293b;   /* near-black */
+  --ab-text-secondary:  #475569;   /* readable medium gray */
+  --ab-text-label:      #64748b;   /* section title — visible but secondary */
+  --ab-timeline-border: #cbd5e1;   /* visible against white glass */
+  --ab-card-bg:         #ffffff;
+  --ab-card-border:     #e2e8f0;
+  --ab-placeholder-bg:  #f1f5f9;
+  --ab-placeholder-fg:  #94a3b8;
+}
 
+/* ── Dark mode — OS preference (only when user hasn't overridden) ── */
+@media (prefers-color-scheme: dark) {
+  html:not([data-user-color-scheme='light']) {
+    --ab-accent:          #5b8ef0;
+    --ab-dot-border:      #252d38;
+    --ab-text-primary:    #c4c6c9;
+    --ab-text-secondary:  #a7a9ad;
+    --ab-text-label:      #687582;
+    --ab-timeline-border: #435266;
+    --ab-card-bg:         #252d38;
+    --ab-card-border:     #435266;
+    --ab-placeholder-bg:  #2e3848;
+    --ab-placeholder-fg:  #687582;
+  }
+}
+
+/* ── Dark mode — Fluid toggle button ───────────────────────────── */
+html[data-user-color-scheme='dark'] {
+  --ab-accent:          #5b8ef0;
+  --ab-dot-border:      #252d38;
+  --ab-text-primary:    #c4c6c9;
+  --ab-text-secondary:  #a7a9ad;
+  --ab-text-label:      #687582;
+  --ab-timeline-border: #435266;
+  --ab-card-bg:         #252d38;
+  --ab-card-border:     #435266;
+  --ab-placeholder-bg:  #2e3848;
+  --ab-placeholder-fg:  #687582;
+}
+
+/* ── Components ─────────────────────────────────────────────────── */
 .ab-intro {
   font-size: 1.05rem;
   line-height: 1.75;
-  color: #2c3e50;
+  color: var(--ab-text-primary);
   margin-bottom: 2.5rem;
   max-width: 680px;
 }
@@ -20,7 +63,7 @@ date: 2024-04-16 18:17:18
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: #8a9bac;
+  color: var(--ab-text-label);
   margin: 0 0 1.25rem;
 }
 
@@ -29,7 +72,7 @@ date: 2024-04-16 18:17:18
   flex-direction: column;
   gap: 0;
   margin-bottom: 3rem;
-  border-left: 2px solid #e0e4ea;
+  border-left: 2px solid var(--ab-timeline-border);
   padding-left: 1.5rem;
 }
 
@@ -48,15 +91,15 @@ date: 2024-04-16 18:17:18
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: #2a5298;
-  border: 2px solid #fff;
-  box-shadow: 0 0 0 2px #2a5298;
+  background: var(--ab-accent);
+  border: 2px solid var(--ab-dot-border);
+  box-shadow: 0 0 0 2px var(--ab-accent);
 }
 
 .ab-step-year {
   font-size: 0.75rem;
   font-weight: 600;
-  color: #2a5298;
+  color: var(--ab-accent);
   letter-spacing: 0.05em;
   text-transform: uppercase;
   margin-bottom: 0.15rem;
@@ -65,13 +108,13 @@ date: 2024-04-16 18:17:18
 .ab-step-title {
   font-size: 0.95rem;
   font-weight: 600;
-  color: #2c3e50;
+  color: var(--ab-text-primary);
   margin-bottom: 0.2rem;
 }
 
 .ab-step-desc {
   font-size: 0.875rem;
-  color: #5a6a7a;
+  color: var(--ab-text-secondary);
   line-height: 1.55;
   margin: 0;
 }
@@ -85,21 +128,21 @@ date: 2024-04-16 18:17:18
 }
 
 .ab-art-card {
-  border: 1px solid #e0e4ea;
+  border: 1px solid var(--ab-card-border);
   border-radius: 6px;
   overflow: hidden;
-  background: #fff;
+  background: var(--ab-card-bg);
 }
 
 .ab-art-placeholder {
   height: 180px;
-  background: #f4f5f7;
+  background: var(--ab-placeholder-bg);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 0.4rem;
-  color: #b0bac4;
+  color: var(--ab-placeholder-fg);
   font-size: 0.82rem;
 }
 
@@ -117,13 +160,13 @@ date: 2024-04-16 18:17:18
 .ab-art-label {
   font-size: 0.85rem;
   font-weight: 600;
-  color: #2c3e50;
+  color: var(--ab-text-primary);
   margin: 0 0 0.2rem;
 }
 
 .ab-art-caption {
   font-size: 0.8rem;
-  color: #5a6a7a;
+  color: var(--ab-text-secondary);
   margin: 0;
   line-height: 1.5;
 }
@@ -136,28 +179,12 @@ date: 2024-04-16 18:17:18
 
 .ab-research-list li {
   font-size: 0.92rem;
-  color: #2c3e50;
+  color: var(--ab-text-primary);
   line-height: 1.7;
   margin-bottom: 0.25rem;
 }
 
 .ab-section { margin-bottom: 2.75rem; }
-
-/* ── Dark mode ──────────────────────────────────────────────────── */
-@media (prefers-color-scheme: dark) {
-  .ab-intro             { color: #c4c6c9; }
-  .ab-section-title     { color: #687582; }
-  .ab-timeline          { border-left-color: #435266; }
-  .ab-step::before      { background: #5b8ef0; box-shadow: 0 0 0 2px #5b8ef0; border-color: #252d38; }
-  .ab-step-year         { color: #5b8ef0; }
-  .ab-step-title        { color: #c4c6c9; }
-  .ab-step-desc         { color: #a7a9ad; }
-  .ab-art-card          { background: #252d38; border-color: #435266; }
-  .ab-art-placeholder   { background: #2e3848; color: #687582; }
-  .ab-art-label         { color: #c4c6c9; }
-  .ab-art-caption       { color: #a7a9ad; }
-  .ab-research-list li  { color: #c4c6c9; }
-}
 
 /* ── Mobile ─────────────────────────────────────────────────────── */
 @media (max-width: 600px) {
