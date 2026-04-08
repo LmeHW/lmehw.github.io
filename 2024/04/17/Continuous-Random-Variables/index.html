@@ -23,23 +23,23 @@
 <meta property="og:site_name" content="LmeHW&#39;s Blog">
 <meta property="og:description" content="Lecture_5 Continuous Random Variables Contents   Lecture_5   1. PDF &amp; CDF   2. Uniform Distribution   3. Basic Monte Carlo Simulation   4. Exponential Distribution   5. Normal Distribution   6. Centra">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://lmehw.github.io/img/probability/Continuous-Random-Variables/uniform.png">
-<meta property="og:image" content="http://lmehw.github.io/img/probability/Continuous-Random-Variables/uni_eg.png">
-<meta property="og:image" content="http://lmehw.github.io/img/probability/Continuous-Random-Variables/expo.png">
-<meta property="og:image" content="http://lmehw.github.io/img/probability/Continuous-Random-Variables/expo_eg.png">
-<meta property="og:image" content="http://lmehw.github.io/img/probability/Continuous-Random-Variables/norm.png">
-<meta property="og:image" content="http://lmehw.github.io/img/probability/Continuous-Random-Variables/norm_diag.png">
-<meta property="og:image" content="http://lmehw.github.io/img/probability/Continuous-Random-Variables/CLT-Approximation.png">
-<meta property="og:image" content="http://lmehw.github.io/img/probability/Continuous-Random-Variables/Bern_MGF.png">
-<meta property="og:image" content="http://lmehw.github.io/img/probability/Continuous-Random-Variables/unif_MGF.png">
-<meta property="og:image" content="http://lmehw.github.io/img/probability/Continuous-Random-Variables/bin_nbin_MGF.png">
+<meta property="og:image" content="http://lmehw.github.io/img/courses/probability/Continuous-Random-Variables/uniform.png">
+<meta property="og:image" content="http://lmehw.github.io/img/courses/probability/Continuous-Random-Variables/uni_eg.png">
+<meta property="og:image" content="http://lmehw.github.io/img/courses/probability/Continuous-Random-Variables/expo.png">
+<meta property="og:image" content="http://lmehw.github.io/img/courses/probability/Continuous-Random-Variables/expo_eg.png">
+<meta property="og:image" content="http://lmehw.github.io/img/courses/probability/Continuous-Random-Variables/norm.png">
+<meta property="og:image" content="http://lmehw.github.io/img/courses/probability/Continuous-Random-Variables/norm_diag.png">
+<meta property="og:image" content="http://lmehw.github.io/img/courses/probability/Continuous-Random-Variables/CLT-Approximation.png">
+<meta property="og:image" content="http://lmehw.github.io/img/courses/probability/Continuous-Random-Variables/Bern_MGF.png">
+<meta property="og:image" content="http://lmehw.github.io/img/courses/probability/Continuous-Random-Variables/unif_MGF.png">
+<meta property="og:image" content="http://lmehw.github.io/img/courses/probability/Continuous-Random-Variables/bin_nbin_MGF.png">
 <meta property="article:published_time" content="2024-04-17T16:07:39.000Z">
-<meta property="article:modified_time" content="2026-04-08T15:12:26.200Z">
+<meta property="article:modified_time" content="2026-04-08T16:18:14.630Z">
 <meta property="article:author" content="LmeHW">
 <meta property="article:tag" content="Learning">
 <meta property="article:tag" content="Probability">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://lmehw.github.io/img/probability/Continuous-Random-Variables/uniform.png">
+<meta name="twitter:image" content="http://lmehw.github.io/img/courses/probability/Continuous-Random-Variables/uniform.png">
   
   
   
@@ -208,6 +208,18 @@
           
           
             <li class="nav-item">
+              <a class="nav-link" href="/projects/" target="_self">
+                <i class="iconfont icon-code-fill"></i>
+                <span>Projects</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
               <a class="nav-link" href="/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
                 <span>About</span>
@@ -332,7 +344,7 @@
                 
                 <h1>Lecture_5 Continuous Random Variables</h1>
 <h2 id="Contents">Contents</h2>
-  <div align='center'><a class="btn" href="/img/probability/Continuous-Random-Variables/L5-handwriting.pdf"  target="_blank">Lecture_5</a></div>
+  <div align='center'><a class="btn" href="/img/courses/probability/Continuous-Random-Variables/L5-handwriting.pdf"  target="_blank">Lecture_5</a></div>
   1. <a href="https://lmehw.github.io/2024/04/18/Continuous-Random-Variables/#PDF-CDF">PDF & CDF</a><br>
   2. <a href="https://lmehw.github.io/2024/04/18/Continuous-Random-Variables/#Uniform-Distribution">Uniform Distribution</a><br>
   3. <a href="https://lmehw.github.io/2024/04/18/Continuous-Random-Variables/#Basic-Monte-Carlo-Simulation">Basic Monte Carlo Simulation</a><br>
@@ -375,19 +387,19 @@ $$</li>
           </div>
 <h3 id="Uniform-Distribution">Uniform Distribution</h3>
 <div align='center'>
-<img src="/img/probability/Continuous-Random-Variables/uniform.png" srcset="/img/loading.gif" lazyload style="max-height:300px; width:auto;">
+<img src="/img/courses/probability/Continuous-Random-Variables/uniform.png" srcset="/img/loading.gif" lazyload style="max-height:300px; width:auto;">
 </div>
 <p><span style="font-weight: bold; background-color: #6F42C1;">E.G</span><br>
 Suppose $X_1, X_2,\cdots, X_n$ are i.i.d Unif(0, 1) random variables and let<br>
 $Y = min(X_1, X_2,\cdots, X_n)$ be their minimum. Find $E(Y)$.</p>
 
     <div class="fold">
-      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-27e6c6c1" role="button" aria-expanded="false" aria-controls="collapse-27e6c6c1">
+      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-46f20d35" role="button" aria-expanded="false" aria-controls="collapse-46f20d35">
         <div class="fold-arrow">▶</div>Solution
       </div>
-      <div class="fold-collapse collapse" id="collapse-27e6c6c1">
+      <div class="fold-collapse collapse" id="collapse-46f20d35">
         <div class="fold-content">
-          <div align='center'><img src="/img/probability/Continuous-Random-Variables/uni_eg.png" srcset="/img/loading.gif" lazyload style="max-height:300px; width:auto;"></div>
+          <div align='center'><img src="/img/courses/probability/Continuous-Random-Variables/uni_eg.png" srcset="/img/loading.gif" lazyload style="max-height:300px; width:auto;"></div>
         </div>
       </div>
     </div>
@@ -417,7 +429,7 @@ $$<br>
 \end{align}<br>
 $$</p>
 <div align='center'>
-<img src="/img/probability/Continuous-Random-Variables/expo.png" srcset="/img/loading.gif" lazyload style="max-height:300px; width:auto;">
+<img src="/img/courses/probability/Continuous-Random-Variables/expo.png" srcset="/img/loading.gif" lazyload style="max-height:300px; width:auto;">
 </div>
 <h4 id="Memoryless-Property">Memoryless Property</h4>
 <p>A distribution is said to have the memoryless property if a random<br>
@@ -435,12 +447,12 @@ $L = min(X_1,\cdots, X_n).$ Show that $L ∼ Expo (λ_1 +\cdots+ λ_n)$, and<br>
 interpret this intuitively.</p>
 
     <div class="fold">
-      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-316cdc8a" role="button" aria-expanded="false" aria-controls="collapse-316cdc8a">
+      <div class="fold-title fold-info collapsed" data-toggle="collapse" href="#collapse-86faa6bd" role="button" aria-expanded="false" aria-controls="collapse-86faa6bd">
         <div class="fold-arrow">▶</div>Solution
       </div>
-      <div class="fold-collapse collapse" id="collapse-316cdc8a">
+      <div class="fold-collapse collapse" id="collapse-86faa6bd">
         <div class="fold-content">
-          <div align='center'><img src="/img/probability/Continuous-Random-Variables/expo_eg.png" srcset="/img/loading.gif" lazyload style="max-height:300px; width:auto;"></div>
+          <div align='center'><img src="/img/courses/probability/Continuous-Random-Variables/expo_eg.png" srcset="/img/loading.gif" lazyload style="max-height:300px; width:auto;"></div>
         </div>
       </div>
     </div>
@@ -460,7 +472,7 @@ CDF: \Phi(z) &amp;= \int_{-\infty}^z\varphi(t)dt=\int_{-\infty}^z\frac1{\sqrt{2\
 \end{align}<br>
 $$</p>
 <div align='center'>
-<img src="/img/probability/Continuous-Random-Variables/norm.png" srcset="/img/loading.gif" lazyload style="max-height:300px; width:auto;">
+<img src="/img/courses/probability/Continuous-Random-Variables/norm.png" srcset="/img/loading.gif" lazyload style="max-height:300px; width:auto;">
 </div>
 <ul>
 <li>$\varphi$ for the standard Normal PDF, $\Phi$ for the CDF and Z for the<br>
@@ -492,7 +504,7 @@ $$</p>
 </li>
 </ul>
 <div align='center'>
-<img src="/img/probability/Continuous-Random-Variables/norm_diag.png" srcset="/img/loading.gif" lazyload style="max-height:350px; width:auto;">
+<img src="/img/courses/probability/Continuous-Random-Variables/norm_diag.png" srcset="/img/loading.gif" lazyload style="max-height:350px; width:auto;">
 </div>
 <h2 id="Central-Limit-Theorem">Central Limit Theorem</h2>
 <ul>
@@ -520,7 +532,7 @@ In words, the CDF of the left-hand side approaches the CDF of the standard Norma
 </li>
 </ul>
 <div align='center'>
-<img src="/img/probability/Continuous-Random-Variables/CLT-Approximation.png" srcset="/img/loading.gif" lazyload style="max-height:350px; width:auto;">
+<img src="/img/courses/probability/Continuous-Random-Variables/CLT-Approximation.png" srcset="/img/loading.gif" lazyload style="max-height:350px; width:auto;">
 </div>
 <h3 id="Poisson-Convergence-to-Normal">Poisson Convergence to Normal</h3>
 <p>Let $Y\sim Pois(n)$. We can consider Y to be a sum of $n$ i.i.d. Pois(1) r.v.s. Therefore, for large $n$,</p>
@@ -570,7 +582,7 @@ The moment generating function (MGF) of an r.v. $X$ is $M(t)=E(e^{tX})$, as a fu
 </ul>
 <p><span style="font-weight: bold; background-color: #6F42C1;">E.G</span></p>
 <div align='center'>
-<img src="/img/probability/Continuous-Random-Variables/Bern_MGF.png" srcset="/img/loading.gif" lazyload style="max-height:250px; width:auto;"><img src="/img/probability/Continuous-Random-Variables/unif_MGF.png" srcset="/img/loading.gif" lazyload style="max-height:250px; width:auto;">
+<img src="/img/courses/probability/Continuous-Random-Variables/Bern_MGF.png" srcset="/img/loading.gif" lazyload style="max-height:250px; width:auto;"><img src="/img/courses/probability/Continuous-Random-Variables/unif_MGF.png" srcset="/img/loading.gif" lazyload style="max-height:250px; width:auto;">
 </div>
 <h3 id="Moments-via-Derivatives-of-the-MGF">Moments via Derivatives of the MGF</h3>
 <ul>
@@ -587,7 +599,7 @@ $$</li>
 </ul>
 <p><span style="font-weight: bold; background-color: #6F42C1;">E.G</span></p>
 <div align='center'>
-<img src="/img/probability/Continuous-Random-Variables/bin_nbin_MGF.png" srcset="/img/loading.gif" lazyload style="max-height:350px; width:auto;">
+<img src="/img/courses/probability/Continuous-Random-Variables/bin_nbin_MGF.png" srcset="/img/loading.gif" lazyload style="max-height:350px; width:auto;">
 </div>
 <h3 id="MGF-of-Location-scale-Transformation">MGF of Location-scale Transformation</h3>
 <ul>
@@ -598,7 +610,7 @@ E\left(e^{t(a+bX)}\right)=e^{at}E\left(e^{btX}\right)=e^{at}M\left(bt\right).<br
 $$</li>
 </ul>
 <div align='center'>
-<span style="font-weight: bold; background-color: #882B2C;">See more examples in <a href="/img/probability/Continuous-Random-Variables/L5-handwriting.pdf">Lecture_5</a></span>
+<span style="font-weight: bold; background-color: #882B2C;">See more examples in <a href="/img/courses/probability/Continuous-Random-Variables/L5-handwriting.pdf">Lecture_5</a></span>
 </div>
 
                 
@@ -673,7 +685,7 @@ $$</li>
       
         <div class="license-meta-item license-meta-date">
           <div>Updated on</div>
-          <div>April 8, 2026</div>
+          <div>April 9, 2026</div>
         </div>
       
       
