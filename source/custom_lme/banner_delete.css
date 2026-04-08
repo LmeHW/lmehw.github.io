@@ -1,0 +1,6 @@
+/* 设置背景图片 */
+body {
+    background: url(/img/bg/wallhaven-kxv9rd_2560x1440.jpg);
+    background-attachment: fixed;
+    background-size: cover;  
+  }
