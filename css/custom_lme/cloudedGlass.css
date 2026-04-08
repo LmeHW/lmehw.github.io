@@ -1,0 +1,12 @@
+/* 文章页背景 */
+#board {
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+.sidebar {
+  color: #352828; /* 设置侧边栏中的文本颜色为黑色 */
+}
+.sidebar a {
+  color: #000000; /* 设置侧边栏中所有链接的颜色为黑色 */
+}
+
