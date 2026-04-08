@@ -30,7 +30,7 @@
 <meta property="og:image" content="http://lmehw.github.io/img/about/outdoors/skiing.png">
 <meta property="og:image" content="http://lmehw.github.io/img/about/outdoors/hiking.png">
 <meta property="article:published_time" content="2024-04-16T10:17:18.000Z">
-<meta property="article:modified_time" content="2026-04-08T16:33:05.221Z">
+<meta property="article:modified_time" content="2026-04-08T17:47:03.901Z">
 <meta property="article:author" content="LmeHW">
 <meta property="article:tag" content="学习笔记">
 <meta name="twitter:card" content="summary_large_image">
@@ -43,6 +43,12 @@
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
 
 
@@ -173,30 +179,6 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/" target="_self">
-                <i class="iconfont icon-category-fill"></i>
-                <span>Category</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/" target="_self">
-                <i class="iconfont icon-tags-fill"></i>
-                <span>Tag</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
               <a class="nav-link" href="/projects/" target="_self">
                 <i class="iconfont icon-code-fill"></i>
                 <span>Projects</span>
@@ -267,13 +249,40 @@
         <div id="board"
           >
           
+            <div class="about-avatar">
+              <img src="/img/avatar.png" srcset="/img/loading.gif" lazyload class="img-fluid" alt="avatar">
+            </div>
+          
           <div class="container">
             <div class="row">
               <div class="col-12 col-md-10 m-auto">
                 
 
-<article class="page-content">
-  <style>
+<div class="text-center">
+  <div class="about-info">
+    <div class="about-name">LmeHW</div>
+    <div class="about-intro">Why not have FUN!</div>
+    <div class="about-icons">
+      
+        
+        
+        
+        <a href=https://github.com/LmeHW class="
+           hint--bottom hint--rounded"
+           aria-label=GitHub
+           target="_blank"
+        >
+          <i class="iconfont icon-github-fill" aria-hidden="true"></i>
+          
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+<article class="about-content page-content mt-5">
+  <div class="markdown-body">
+    <style>
 /* ── About page — CSS variables (light mode defaults) ───────────── */
 :root {
   --ab-accent:          #1d4ed8;   /* vivid blue, clearly visible on white */
@@ -319,6 +328,15 @@ html[data-user-color-scheme='dark'] {
 }
 
 /* ── Components ─────────────────────────────────────────────────── */
+.ab-intro-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--ab-text-primary);
+  margin: 0 0 0.75rem;
+  line-height: 1.4;
+  max-width: 680px;
+}
+
 .ab-intro {
   font-size: 1.05rem;
   line-height: 1.75;
@@ -461,6 +479,7 @@ html[data-user-color-scheme='dark'] {
   .ab-art-grid { grid-template-columns: 1fr; }
 }
 </style>
+<h2 class="ab-intro-title">Hi, I'm Wei — a CS student who codes, moves, and explores.</h2>
 <p class="ab-intro">
   I believe sports and the outdoors shape who we are. My love for movement and nature keeps me curious and eager to learn. Staying physically active gives me the confidence to take on challenges, while a strong ability to learn allows me to stay calm and think clearly when facing any difficulties.
 </p>
@@ -492,21 +511,21 @@ html[data-user-color-scheme='dark'] {
   <div class="ab-art-card">
     <img class="ab-art-img" src="/img/about/creative/travel.JPG" srcset="/img/loading.gif" lazyload alt="Travel">
     <div class="ab-art-body">
-      <p class="ab-art-label">Travel</p>
+      <p class="ab-art-label">✈️ Travel</p>
       <p class="ab-art-caption">Every new place rewires how I think — different landscapes, different people, different perspectives.</p>
     </div>
   </div>
   <div class="ab-art-card">
     <img class="ab-art-img" src="/img/about/creative/photography.JPG" srcset="/img/loading.gif" lazyload alt="Photography">
     <div class="ab-art-body">
-      <p class="ab-art-label">Photography</p>
+      <p class="ab-art-label">📷 Photography</p>
       <p class="ab-art-caption">Learning to see the world more carefully, one frame at a time.</p>
     </div>
   </div>
   <div class="ab-art-card">
     <img class="ab-art-img" src="/img/about/creative/food.png" srcset="/img/loading.gif" lazyload alt="Food">
     <div class="ab-art-body">
-      <p class="ab-art-label">Food</p>
+      <p class="ab-art-label">🍜 Food</p>
       <p class="ab-art-caption">The best way to understand a culture — always curious, always hungry.</p>
     </div>
   </div>
@@ -524,7 +543,7 @@ html[data-user-color-scheme='dark'] {
     </div>
   </div>
   <div class="ab-art-card">
-    <img class="ab-art-img" src="/img/about/outdoors/skiing.png" srcset="/img/loading.gif" lazyload alt="Skiing">
+    <img class="ab-art-img" src="/img/about/outdoors/skiing.png" srcset="/img/loading.gif" lazyload alt="Skiing" style="object-position: top;">
     <div class="ab-art-body">
       <p class="ab-art-label">⛷️ Skiing</p>
       <p class="ab-art-caption">Speed, balance, and the mountain — where I feel most alive in winter.</p>
@@ -548,10 +567,34 @@ html[data-user-color-scheme='dark'] {
 </ul>
 </div>
 
+  </div>
+
+  
+</article>
+
+
+
+
 
   
 
-</article>
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
 
 
 
@@ -599,34 +642,9 @@ html[data-user-color-scheme='dark'] {
     <div class="footer-inner">
   
     <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+       <span style="font-weight:600;letter-spacing:0.02em;">Wei Huang</span> &nbsp;&nbsp; <a href="mailto:lmehw.harry@gmail.com" title="Email" style="display:inline-flex;align-items:center;gap:0.3em;text-decoration:none;color:inherit;opacity:0.85;transition:opacity 0.15s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.85"> <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg> lmehw.harry@gmail.com </a> &nbsp;&nbsp; <a href="https://github.com/LmeHW" target="_blank" rel="noopener" title="GitHub" style="display:inline-flex;align-items:center;gap:0.3em;text-decoration:none;color:inherit;opacity:0.85;transition:opacity 0.15s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.85"> <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222 0 1.606-.015 2.898-.015 3.293 0 .319.216.694.825.576C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/></svg> LmeHW </a> 
     </div>
   
-  
-    <div class="statistics">
-  
-  
-
-  
-    
-      <span id="leancloud-site-pv-container" style="display: none">
-        总访问量 
-        <span id="leancloud-site-pv"></span>
-         次
-      </span>
-    
-    
-      <span id="leancloud-site-uv-container" style="display: none">
-        总访客数 
-        <span id="leancloud-site-uv"></span>
-         人
-      </span>
-    
-    
-
-  
-</div>
-
   
   
   
@@ -679,6 +697,59 @@ html[data-user-color-scheme='dark'] {
 
 
 
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
   <script defer src="/js/leancloud.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
@@ -688,7 +759,6 @@ html[data-user-color-scheme='dark'] {
 
   
 <script src="/custom_lme/title.js"></script>
-<script src="/custom_lme/backlines.js"></script>
 
 
 
