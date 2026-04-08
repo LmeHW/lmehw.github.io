@@ -6,7 +6,7 @@ math: true
 comment: false
 categories: [Courses,SI140A]
 excerpt: Notes for Probability
-index_img: /img/probability/wallhaven-zyrq1v_1500x1500.jpg
+index_img: /img/courses/probability/wallhaven-zyrq1v_1500x1500.jpg
 ---
 
 # 概率论 
@@ -22,7 +22,7 @@ Coming Soon...
 
 - [Continuous Random Variables](https://lmehw.github.io/2024/04/18/Continuous-Random-Variables/)
     {% fold info @Lecture information %}
-    <div align='center'>{% btn /img/probability/Continuous-Random-Variables/L5-handwriting.pdf, Lecture_5, %}</div>
+    <div align='center'>{% btn /img/courses/probability/Continuous-Random-Variables/L5-handwriting.pdf, Lecture_5, %}</div>
     1. <a href="https://lmehw.github.io/2024/04/18/Continuous-Random-Variables/#PDF-CDF">PDF & CDF</a><br>
     2. <a href="https://lmehw.github.io/2024/04/18/Continuous-Random-Variables/#Uniform-Distribution">Uniform Distribution</a><br>
     3. <a href="https://lmehw.github.io/2024/04/18/Continuous-Random-Variables/#Basic-Monte-Carlo-Simulation">Basic Monte Carlo Simulation</a><br>
@@ -34,7 +34,7 @@ Coming Soon...
 
 - [Joint Ditribution](https://lmehw.github.io/2024/04/18/Joint-Ditribution/)
     {% fold info @Lecture information %}
-    <div align='center'>{% btn /img/probability/Joint-Ditribution/L6-handwriting.pdf, Lecture_6, %}</div>
+    <div align='center'>{% btn /img/courses/probability/Joint-Ditribution/L6-handwriting.pdf, Lecture_6, %}</div>
     1. <a href="https://lmehw.github.io/2024/04/18/Joint-Ditribution/#Discrete-Multivariate-R-V-s">Discrete Multivariate R.V.s</a><br>
     2. <a href="https://lmehw.github.io/2024/04/18/Joint-Ditribution/#Continuous-Multivariate-R-V-s">Continuous Multivariate R.V.s</a><br>
     3. <a href="https://lmehw.github.io/2024/04/18/Joint-Ditribution/#Covariance-and-Correlation">Covariance and Correlation</a><br>

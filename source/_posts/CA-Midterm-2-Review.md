@@ -1,7 +1,7 @@
 ---
 title: CA Midterm_2 Review
 date: 2024-04-22 17:26:45
-index_img: /img/CA-Midterm-1-Review/wallhaven-jxqgl5_2560x1440.jpg
+index_img: /img/courses/CA-Midterm-1-Review/wallhaven-jxqgl5_2560x1440.jpg
 tags: [CA, Learning]
 categories: [Courses,CA]
 math: true
@@ -17,7 +17,7 @@ excerpt: CS110 Second Midterm Review
 
 ## Datapath & Controller
 <div align='center'>
-{% btn /img/CA-Midterm-2-Review/L11. Datapath.pdf, Datapath, %}{% btn /img/CA-Midterm-2-Review/L12. Datapath & Controller.pdf, Datapath & Controller, %}
+{% btn /img/courses/CA-Midterm-2-Review/L11. Datapath.pdf, Datapath, %}{% btn /img/courses/CA-Midterm-2-Review/L12. Datapath & Controller.pdf, Datapath & Controller, %}
 </div>
 
 ## Pipeline
@@ -25,18 +25,18 @@ excerpt: CS110 Second Midterm Review
 ### "Iron Law" Of Performance
 
 <div align="center">
-<img src="/img/CA-Midterm-2-Review/ironLaw.png" style="max-height:350px; width:auto;">
+<img src="/img/courses/CA-Midterm-2-Review/ironLaw.png" style="max-height:350px; width:auto;">
 </div>
 
 <span style="font-weight: bold; background-color: #6F42C1;">E.G</span>
 <div align="center">
-<img src="/img/CA-Midterm-2-Review/iron_eg.png" style="max-height:350px; width:auto;">
+<img src="/img/courses/CA-Midterm-2-Review/iron_eg.png" style="max-height:350px; width:auto;">
 </div>
 
 {% fold info @Solution %}
 
 <div align="center">
-<img src="/img/CA-Midterm-2-Review/ir_eg_sol.png" style="max-height:350px; width:auto;">
+<img src="/img/courses/CA-Midterm-2-Review/ir_eg_sol.png" style="max-height:350px; width:auto;">
 </div>
 {% note warning %}
 注意各个部分的含义。
@@ -57,7 +57,7 @@ excerpt: CS110 Second Midterm Review
   4. Wait/Stall
 
 <div align="center">
-<img src="/img/CA-Midterm-2-Review/struct_hazard.png
+<img src="/img/courses/CA-Midterm-2-Review/struct_hazard.png
 " style="max-height:350px; width:auto;">
 </div>
 
@@ -74,7 +74,7 @@ excerpt: CS110 Second Midterm Review
   2. Forwarding or bypass(寄存器)
 
 <div align="center">
-<img src="/img/CA-Midterm-2-Review/data_hazard_sol1.png" style="max-height:250px; width:auto;"><img src="/img/CA-Midterm-2-Review/data_hazard_sol2.png" style="max-height:250px; width:auto;">
+<img src="/img/courses/CA-Midterm-2-Review/data_hazard_sol1.png" style="max-height:250px; width:auto;"><img src="/img/courses/CA-Midterm-2-Review/data_hazard_sol2.png" style="max-height:250px; width:auto;">
 </div>
 
 {% note warning %}

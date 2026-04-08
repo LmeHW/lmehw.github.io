@@ -10,7 +10,7 @@ math: true
 # Lecture_6 Joint Ditribution
 
 ## Contents
-<div align='center'>{% btn /img/probability/Joint-Ditribution/L6-handwriting.pdf, Lecture_6, %}</div>
+<div align='center'>{% btn /img/courses/probability/Joint-Ditribution/L6-handwriting.pdf, Lecture_6, %}</div>
 1. <a href="https://lmehw.github.io/2024/04/18/Joint-Ditribution/#Discrete-Multivariate-R-V-s">Discrete Multivariate R.V.s</a><br>
 2. <a href="https://lmehw.github.io/2024/04/18/Joint-Ditribution/#Continuous-Multivariate-R-V-s">Continuous Multivariate R.V.s</a><br>
 3. <a href="https://lmehw.github.io/2024/04/18/Joint-Ditribution/#Covariance-and-Correlation">Covariance and Correlation</a><br>
@@ -41,7 +41,7 @@ Suppose a chicken lays a random number of eggs, $N$, where
 and $N\sim\operatorname{Pois}(\lambda)$. Each egg independently hatches with probability $p$ and fails to hatch with probability $q=1-p$. Let $X$ be the number of eggs that hatch and Y the number eggs that hatch and Ythe number that do not hatch, so $X+Y=N.$ What is the joint PMF of $X$ and $Y?$
 {% fold info @Solution %}
 <div align='center'>
-<img src="/img/probability/Joint-Distribution/disc_mul_eg1.png" style="max-height:250px; width:auto;"><img src="/img/probability/Joint-Distribution/disc_mul_eg2.png" style="max-height:250px; width:auto;">
+<img src="/img/courses/probability/Joint-Distribution/disc_mul_eg1.png" style="max-height:250px; width:auto;"><img src="/img/courses/probability/Joint-Distribution/disc_mul_eg2.png" style="max-height:250px; width:auto;">
 </div>
 {% endfold %}
 
@@ -86,7 +86,7 @@ $$
 
 {% fold info @Solution %}
 <figure>
-<img src="/img/probability/Joint-Distribution/cont_mul_eg_1.png" style="max-height:250px; width:auto;">
+<img src="/img/courses/probability/Joint-Distribution/cont_mul_eg_1.png" style="max-height:250px; width:auto;">
 </figure>
 {% endfold %}
 
@@ -101,7 +101,7 @@ Find $P \\{ X>1|Y=y \\} .$
 
 {% fold info @Solution %}
 <figure>
-<img src="/img/probability/Joint-Distribution/cont_mul_eg_2.png" style="max-height:250px; width:auto;">
+<img src="/img/courses/probability/Joint-Distribution/cont_mul_eg_2.png" style="max-height:250px; width:auto;">
 </figure>
 {% endfold %}
 
@@ -126,18 +126,18 @@ $$
 A light bulb produced by the GE company is known to have an exponential distributed lifetime $Y$. However, the company has been experiencing quality control problems. On any given day, the parameter $\lambda$ of the PDF of $Y$is actually a random variable. uniformly distributed in the interval[1,3/2]. We test a ligut $\omega$ Jrd its lifetime. What we can say about the underlying parameter $\lambda?$
 {% fold info @Solution %}
 <figure>
-<img src="/img/probability/Joint-Distribution/cont_mul_eg_3.png" style="max-height:250px; width:auto;">
+<img src="/img/courses/probability/Joint-Distribution/cont_mul_eg_3.png" style="max-height:250px; width:auto;">
 </figure>
 {% endfold %}
 
 #### General Bayes' Rule & LOTP
 
 <div align='center'>
-<img src="/img/probability/Joint-Distribution/general_bayes1.png" style="max-height:200px; width:auto;"><img src="/img/probability/Joint-Distribution/general_bayes2.png" style="max-height:200px; width:auto;">
+<img src="/img/courses/probability/Joint-Distribution/general_bayes1.png" style="max-height:200px; width:auto;"><img src="/img/courses/probability/Joint-Distribution/general_bayes2.png" style="max-height:200px; width:auto;">
 <p style="text-align:center;">General Bayes’ Rule</p>
 </div>
 
 <figure>
-<img src="/img/probability/Joint-Distribution/general_lotp.png" style="max-height:300px; width:auto;">
+<img src="/img/courses/probability/Joint-Distribution/general_lotp.png" style="max-height:300px; width:auto;">
 <figcaption>General LOTP</figcaption>
 </figure>

@@ -10,7 +10,7 @@ math: true
 # Lecture_5 Continuous Random Variables
 
 ## Contents
-  <div align='center'>{% btn /img/probability/Continuous-Random-Variables/L5-handwriting.pdf, Lecture_5, %}</div>
+  <div align='center'>{% btn /img/courses/probability/Continuous-Random-Variables/L5-handwriting.pdf, Lecture_5, %}</div>
   1. <a href="https://lmehw.github.io/2024/04/18/Continuous-Random-Variables/#PDF-CDF">PDF & CDF</a><br>
   2. <a href="https://lmehw.github.io/2024/04/18/Continuous-Random-Variables/#Uniform-Distribution">Uniform Distribution</a><br>
   3. <a href="https://lmehw.github.io/2024/04/18/Continuous-Random-Variables/#Basic-Monte-Carlo-Simulation">Basic Monte Carlo Simulation</a><br>
@@ -67,7 +67,7 @@ $$
 
 ### Uniform Distribution
 <div align='center'>
-<img src="/img/probability/Continuous-Random-Variables/uniform.png" style="max-height:300px; width:auto;">
+<img src="/img/courses/probability/Continuous-Random-Variables/uniform.png" style="max-height:300px; width:auto;">
 </div>
 
 <span style="font-weight: bold; background-color: #6F42C1;">E.G</span>
@@ -75,7 +75,7 @@ Suppose $X_1, X_2,\cdots, X_n$ are i.i.d Unif(0, 1) random variables and let
 $Y = min(X_1, X_2,\cdots, X_n)$ be their minimum. Find $E(Y)$.
 {% fold info @Solution %}
 <div align='center'>
-<img src="/img/probability/Continuous-Random-Variables/uni_eg.png" style="max-height:300px; width:auto;">
+<img src="/img/courses/probability/Continuous-Random-Variables/uni_eg.png" style="max-height:300px; width:auto;">
 </div>
 {% endfold %}
 
@@ -104,7 +104,7 @@ $$
 $$
 
 <div align='center'>
-<img src="/img/probability/Continuous-Random-Variables/expo.png" style="max-height:300px; width:auto;">
+<img src="/img/courses/probability/Continuous-Random-Variables/expo.png" style="max-height:300px; width:auto;">
 </div>
 
 #### Memoryless Property
@@ -127,7 +127,7 @@ $L = min(X_1,\cdots, X_n).$ Show that $L ∼ Expo (λ_1 +\cdots+ λ_n)$, and
 interpret this intuitively.
 {% fold info @Solution %}
 <div align='center'>
-<img src="/img/probability/Continuous-Random-Variables/expo_eg.png" style="max-height:300px; width:auto;">
+<img src="/img/courses/probability/Continuous-Random-Variables/expo_eg.png" style="max-height:300px; width:auto;">
 </div>
 {% endfold %}
 
@@ -149,7 +149,7 @@ $$
 \end{align}
 $$
 <div align='center'>
-<img src="/img/probability/Continuous-Random-Variables/norm.png" style="max-height:300px; width:auto;">
+<img src="/img/courses/probability/Continuous-Random-Variables/norm.png" style="max-height:300px; width:auto;">
 </div>
 
   - $\varphi$ for the standard Normal PDF, $\Phi$ for the CDF and Z for the
@@ -177,7 +177,7 @@ $$
 f\left(x\right)=\varphi\left(\frac{x-\mu}\sigma\right)\frac1\sigma
 $$
 <div align='center'>
-<img src="/img/probability/Continuous-Random-Variables/norm_diag.png" style="max-height:350px; width:auto;">
+<img src="/img/courses/probability/Continuous-Random-Variables/norm_diag.png" style="max-height:350px; width:auto;">
 </div>
 
 ## Central Limit Theorem
@@ -198,7 +198,7 @@ In words, the CDF of the left-hand side approaches the CDF of the standard Norma
   - For large $n$, the distribution of $\bar{X}_n$ is approximately $N(\mu,\sigma^2/n).$ 
   - For large $n$, the distribution of $n\bar{X}_n=X_1+\ldots+X_n$ is approximately $\mathcal{N}(n\mu,n\sigma^2).$
 <div align='center'>
-<img src="/img/probability/Continuous-Random-Variables/CLT-Approximation.png" style="max-height:350px; width:auto;">
+<img src="/img/courses/probability/Continuous-Random-Variables/CLT-Approximation.png" style="max-height:350px; width:auto;">
 </div>
 
 ### Poisson Convergence to Normal
@@ -249,7 +249,7 @@ The moment generating function (MGF) of an r.v. $X$ is $M(t)=E(e^{tX})$, as a fu
 
 <span style="font-weight: bold; background-color: #6F42C1;">E.G</span>
 <div align='center'>
-<img src="/img/probability/Continuous-Random-Variables/Bern_MGF.png" style="max-height:250px; width:auto;"><img src="/img/probability/Continuous-Random-Variables/unif_MGF.png" style="max-height:250px; width:auto;">
+<img src="/img/courses/probability/Continuous-Random-Variables/Bern_MGF.png" style="max-height:250px; width:auto;"><img src="/img/courses/probability/Continuous-Random-Variables/unif_MGF.png" style="max-height:250px; width:auto;">
 </div>
 
 ### Moments via Derivatives of the MGF
@@ -265,7 +265,7 @@ $$
 
 <span style="font-weight: bold; background-color: #6F42C1;">E.G</span>
 <div align='center'>
-<img src="/img/probability/Continuous-Random-Variables/bin_nbin_MGF.png" style="max-height:350px; width:auto;">
+<img src="/img/courses/probability/Continuous-Random-Variables/bin_nbin_MGF.png" style="max-height:350px; width:auto;">
 </div>
 
 ### MGF of Location-scale Transformation
@@ -276,5 +276,5 @@ E\left(e^{t(a+bX)}\right)=e^{at}E\left(e^{btX}\right)=e^{at}M\left(bt\right).
 $$
 
 <div align='center'>
-<span style="font-weight: bold; background-color: #882B2C;">See more examples in <a href="/img/probability/Continuous-Random-Variables/L5-handwriting.pdf">Lecture_5</a></span>
+<span style="font-weight: bold; background-color: #882B2C;">See more examples in <a href="/img/courses/probability/Continuous-Random-Variables/L5-handwriting.pdf">Lecture_5</a></span>
 </div>

@@ -4,7 +4,19 @@
       "Bash(git add:*)",
       "Bash(git commit:*)",
       "Bash(git push:*)",
-      "Bash(git rm:*)"
+      "Bash(git rm:*)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:yqhuang1234-ui.github.io)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(curl -s \"https://raw.githubusercontent.com/yqhuang1234-ui/yqhuang1234-ui.github.io/main/source/projects/index.md\")",
+      "Bash(curl -s \"https://raw.githubusercontent.com/yqhuang1234-ui/yqhuang1234-ui.github.io/main/source/about/index.md\")",
+      "Bash(sed -i '' 's|/img/CA-Midterm-1-Review/|/img/courses/CA-Midterm-1-Review/|g' CA-Midterm-1-Review.md CA-Midterm-2-Review.md)",
+      "Bash(sed -i '' 's|/img/CA-Midterm-2-Review/|/img/courses/CA-Midterm-2-Review/|g' CA-Midterm-2-Review.md)",
+      "Bash(sed -i '' 's|/img/CS181/|/img/courses/CS181/|g' CS181-Artificial-Intelligence.md)",
+      "Bash(sed -i '' 's|/img/probability/|/img/courses/probability/|g' Continuous-Random-Variables.md Joint-Ditribution.md probability.md)",
+      "Bash(sips -s format png outdoors/skiing.HEIC --out outdoors/skiing.png)",
+      "Bash(sips -s format png outdoors/hiking.HEIC --out outdoors/hiking.png)",
+      "Bash(sips -s format png creative/food.HEIC --out creative/food.png)"
     ]
   }
 }

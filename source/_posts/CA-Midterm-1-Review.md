@@ -2,7 +2,7 @@
 title: CA-Midterm_1-Review
 date: 2024-04-12 12:47:02
 lang: en
-index_img: /img/CA-Midterm-1-Review/wallhaven-jxqgl5_2560x1440.jpg
+index_img: /img/courses/CA-Midterm-1-Review/wallhaven-jxqgl5_2560x1440.jpg
 tags: [CA, Learning]
 categories: [Courses,CA]
 math: true
@@ -40,7 +40,7 @@ excerpt: CS110 First Midterm Review
 ##  1. <a name='Floatingpointnumber'></a>Floating point number
 
 <div align="center">
-<img src="/img/CA-Midterm-1-Review/1712645138443.png" style="max-height:250px; width:auto;">
+<img src="/img/courses/CA-Midterm-1-Review/1712645138443.png" style="max-height:250px; width:auto;">
 </div>
 
 $$
@@ -52,7 +52,7 @@ $$
 $$
 
 <div align="center">
-<img src="/img/CA-Midterm-1-Review/1712645707931.png" style="max-height:250px; width:auto;">
+<img src="/img/courses/CA-Midterm-1-Review/1712645707931.png" style="max-height:250px; width:auto;">
 <figcaption>Summary</figcaption>
 </div>
 
@@ -70,13 +70,13 @@ The exponent of denorms: $E := -126$
 - Assembling is also done (but is hidden, i.e., done automatically, by default);
 
 <div align="center">
-<img src="/img/CA-Midterm-1-Review/1712647862392.png" style="max-height:450px; width:auto;">
+<img src="/img/courses/CA-Midterm-1-Review/1712647862392.png" style="max-height:450px; width:auto;">
 </div>
 
 **E.G**
 
 <div align="center"">
-<img src="/img/CA-Midterm-1-Review/1712657012853.png" style="max-height: 450px; width:auto;">
+<img src="/img/courses/CA-Midterm-1-Review/1712657012853.png" style="max-height: 450px; width:auto;">
 <figcaption>Something abt macro constant</figcaption>
 </div>
 
@@ -93,8 +93,8 @@ Just remember to initialize it, or it can point to "garbage".
 The difference between `char string1[] = "abc"` , `char string2[3] = "abc"  `and `char *string3 = "abc"`.
 
 <div align="center">
-    <img src="/img/CA-Midterm-1-Review/1712658756754.png" style="max-height:300px; width:auto;">
-    <img src="/img/CA-Midterm-1-Review/1712658781716.png" style="max-height:300px; width:auto;">
+    <img src="/img/courses/CA-Midterm-1-Review/1712658756754.png" style="max-height:300px; width:auto;">
+    <img src="/img/courses/CA-Midterm-1-Review/1712658781716.png" style="max-height:300px; width:auto;">
     <p style="text-align:center;">string1 ends with '\0', string3 is only readable</p>
 </div>
 
@@ -140,7 +140,7 @@ sum += *p++
 
 ##  3. <a name='CMemoryManagemen'></a>C Memory Managemen
 
-<img align="right" src="/img/CA-Midterm-1-Review/1712563732459.png" style="max-height:200px; width:auto;">
+<img align="right" src="/img/courses/CA-Midterm-1-Review/1712563732459.png" style="max-height:200px; width:auto;">
 
 - **Stack:** automatically resize itself upon function invocations. (StackOverflow)
 - **Heap:** this part is used for dynamic memory allocation. (malloc, free)
@@ -187,12 +187,12 @@ Seek for more details: [RISC-V Green_card](\img\CA-Midterm-1-Review\riscvcard.pd
   - **Hold time:** The minimum time during which the input must be valid after the clock edge
 
 <div align="center">
-<img src="/img/CA-Midterm-1-Review/1712566491323.png" style="max-height:200px; width:auto;">
+<img src="/img/courses/CA-Midterm-1-Review/1712566491323.png" style="max-height:200px; width:auto;">
 </div>
 
 <div align="center">
-    <img src="/img/CA-Midterm-1-Review/1712579855004.jpg" style="max-height:300px; width:auto;">
-    <img src="/img/CA-Midterm-1-Review/1712580603850.png" style="max-height:300px; width:auto;">
+    <img src="/img/courses/CA-Midterm-1-Review/1712579855004.jpg" style="max-height:300px; width:auto;">
+    <img src="/img/courses/CA-Midterm-1-Review/1712580603850.png" style="max-height:300px; width:auto;">
 </div>
 
 {% note info %}
@@ -223,7 +223,7 @@ $$
 **E.G**
 
 <div align="center">
-<img src="/img/CA-Midterm-1-Review/1712642904789.png" style="max-height:200px; width:auto;">
+<img src="/img/courses/CA-Midterm-1-Review/1712642904789.png" style="max-height:200px; width:auto;">
 <figcaption>Example of Setup & Hold time</figcaption>
 </div>
 
@@ -236,7 +236,7 @@ Solution:
 {% endnote %}
 
 <div align="center">
-    <img src="/img/CA-Midterm-1-Review/1712643481109.jpg" style="max-height:200px; width:auto;">
-    <img src="/img/CA-Midterm-1-Review/1712643484417.jpg" style="max-height:200px; width:auto;">
+    <img src="/img/courses/CA-Midterm-1-Review/1712643481109.jpg" style="max-height:200px; width:auto;">
+    <img src="/img/courses/CA-Midterm-1-Review/1712643484417.jpg" style="max-height:200px; width:auto;">
     <figcaption>Example of Setup & Hold time</figcaption>
 </div>

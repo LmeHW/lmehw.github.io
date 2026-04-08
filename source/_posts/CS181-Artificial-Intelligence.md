@@ -1,7 +1,7 @@
 ---
 title: CS181 Artificial Intelligence
 date: 2024-10-11 16:20:40
-index_img: /img/CS181/wallhaven-ex57ok_2560x1440.png
+index_img: /img/courses/CS181/wallhaven-ex57ok_2560x1440.png
 categories: [Courses, CS181]
 tags: [CS181, Learning]
 math: true
@@ -17,21 +17,21 @@ A search problem consists of:
 3. A start state and a goal test
 
 A `<b style="color: red;">`search space`</b>` keeps only the details needed for planning (abstraction).
-![](/img/CS181/state-space.png)
+![](/img/courses/CS181/state-space.png)
 
 ## DFS
 
-![](/img/CS181/DFS.png)
+![](/img/courses/CS181/DFS.png)
 
 ## BFS
 
-![](/img/CS181/BFS.png)
+![](/img/courses/CS181/BFS.png)
 
 ## UCS
 
 Uniform Cost Search is {% label success @complete and optimal %}.
 
-![](/img/CS181/UCS.png)
+![](/img/courses/CS181/UCS.png)
 
 {% note warning %}
 
@@ -59,7 +59,7 @@ where $h^*(n)$ is the true cost to a nearest goal.
 
 {% gi total 3 3 %}
 ![]()
-![](/img/CS181/consistency.png)
+![](/img/courses/CS181/consistency.png)
 ![]()
 {% endgi %}
 
@@ -108,11 +108,11 @@ After enforcing arc consistency:
 Replace terminal utilities with an evaluation function for non-terminal positions.
 
 Evaluation Functions:
-![](/img/CS181/eva-func.png)
+![](/img/courses/CS181/eva-func.png)
 
 - Do not guarantee the optimal play.
 - More depth makes a BIG difference.
 
 ### `<b></b>`  $\alpha$-$\beta$ Implementation
 
-![Pseudocode](/img/CS181/alpha-beta.png)
+![Pseudocode](/img/courses/CS181/alpha-beta.png)
