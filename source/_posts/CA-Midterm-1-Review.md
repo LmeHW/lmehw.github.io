@@ -4,7 +4,7 @@ date: 2024-04-12 12:47:02
 lang: en
 index_img: /img/CA-Midterm-1-Review/wallhaven-jxqgl5_2560x1440.jpg
 tags: [CA, Learning]
-categories: [课程学习,CA]
+categories: [Courses,CA]
 math: true
 comment: 'waline'
 excerpt: CS110 First Midterm Review

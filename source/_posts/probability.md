@@ -4,7 +4,7 @@ date: 2024-04-17 21:01:43
 tags: [Probability, Learning]
 math: true
 comment: false
-categories: [课程学习,SI140A]
+categories: [Courses,SI140A]
 excerpt: Notes for Probability
 index_img: /img/probability/wallhaven-zyrq1v_1500x1500.jpg
 ---

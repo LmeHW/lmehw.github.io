@@ -2,7 +2,7 @@
 title: Continuous Random Variables
 date: 2024-04-18 00:07:39
 tags: [Probability, Learning]
-categories: [课程学习,SI140A]
+categories: [Courses,SI140A]
 comment: 'waline'
 archive: true
 math: true
