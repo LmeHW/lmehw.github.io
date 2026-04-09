@@ -202,7 +202,7 @@ html[data-user-color-scheme='dark'] {
 }
 </style>
 
-<h2 class="ab-intro-title">Hi, I'm Wei — a CS student who codes, moves, and explores.</h2>
+<h2 class="ab-intro-title">Hi, There!</h2>
 <p class="ab-intro">
   I believe sports and the outdoors shape who we are. My love for movement and nature keeps me curious and eager to learn. Staying physically active gives me the confidence to take on challenges, while a strong ability to learn allows me to stay calm and think clearly when facing any difficulties.
 </p>

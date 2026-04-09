@@ -233,11 +233,7 @@ html[data-user-color-scheme='dark'] {
     </div>
     <div class="project-tags">
       <span class="tag">Python</span>
-      <span class="tag">Flask</span>
-      <span class="tag">JavaScript</span>
-      <span class="tag">OpenAI GPT-4.1</span>
-      <span class="tag">Gemini 2.0 Flash</span>
-      <span class="tag">Meshy v5</span>
+      <span class="tag">Meshy</span>
       <span class="tag">3D Modeling</span>
       <span class="tag">LLM</span>
     </div>
