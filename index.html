@@ -693,28 +693,27 @@
 
 <style>
 .home-explore {
-  margin-top: 3rem;
+  margin-top: 3.25rem;
 }
 
 .home-explore-heading {
-  font-size: 1.6rem;
-  font-weight: 600;
-  line-height: 1.35;
-  margin: 0 0 0.75rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0 0 0.65rem;
   color: var(--text-color, #2f4154);
 }
 
 .home-explore-intro {
-  margin: 0 0 1rem;
+  margin: 0 0 1.1rem;
   color: var(--sec-text-color, #5c6b77);
-  line-height: 1.8;
+  line-height: 1.75;
 }
 
 .home-explore-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.85rem;
-  margin: 0 0 1.25rem;
+  gap: 0.9rem;
+  margin: 0 0 1.35rem;
 }
 
 .home-explore-link {
@@ -730,35 +729,39 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.65rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
-.home-explore-tag {
+.ex-pill {
   appearance: none;
   border: 1px solid var(--line-color, #d0d7de);
-  background: transparent;
-  color: var(--text-color, #2f4154);
+  background: var(--board-bg-color, #fff);
+  color: var(--sec-text-color, #5c6b77);
   border-radius: 999px;
-  padding: 0.38rem 0.95rem;
+  padding: 0.36rem 0.88rem;
   font-size: 0.9rem;
-  line-height: 1.2;
+  line-height: 1.1;
   cursor: pointer;
-  transition: border-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+  transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease;
 }
 
-.home-explore-tag:hover,
-.home-explore-tag.is-active {
-  background: transparent;
-  border-color: var(--link-hover-color, #1e40af);
-  color: var(--link-hover-color, #1e40af);
+.ex-pill:hover {
+  border-color: var(--link-color, #1d4ed8);
+  color: var(--link-color, #1d4ed8);
 }
 
-.home-explore-tag:focus-visible {
+.ex-pill.is-active {
+  background: var(--link-color, #1d4ed8);
+  border-color: var(--link-color, #1d4ed8);
+  color: #fff;
+}
+
+.ex-pill:focus-visible {
   outline: 2px solid var(--link-hover-color, #1e40af);
   outline-offset: 2px;
 }
 
-.home-explore-tag-count {
+.ex-pill-count {
   opacity: 0.7;
 }
 
@@ -768,637 +771,428 @@
   font-size: 0.95rem;
 }
 
-.home-explore-results .index-card {
-  transition: opacity 0.18s ease;
+.home-explore-results {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
 }
 
-.home-explore-results .index-card.is-hidden {
+.ex-card {
+  display: block;
+  border: 1px solid var(--line-color, #d0d7de);
+  border-radius: 14px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  background: var(--board-bg-color, #fff);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.ex-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+  border-color: var(--link-color, #1d4ed8);
+}
+
+.ex-card.is-hidden {
   display: none;
+}
+
+.ex-card-img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+
+.ex-card-body {
+  padding: 0.82rem 0.92rem 0.9rem;
+}
+
+.ex-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  margin-bottom: 0.52rem;
+}
+
+.ex-badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  padding: 0.28rem 0.56rem;
+}
+
+.ex-badge-blog {
+  background: rgba(29, 78, 216, 0.12);
+  color: #1d4ed8;
+}
+
+.ex-badge-project {
+  background: rgba(15, 23, 42, 0.12);
+  color: #0f172a;
+}
+
+.ex-card-date {
+  font-size: 0.74rem;
+  color: var(--sec-text-color, #5c6b77);
+}
+
+.ex-card-title {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+  line-height: 1.45;
+  color: var(--text-color, #2f4154);
+}
+
+.ex-card-desc {
+  margin: 0 0 0.62rem;
+  font-size: 0.88rem;
+  line-height: 1.62;
+  color: var(--sec-text-color, #5c6b77);
+}
+
+.ex-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.ex-card-tag {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  border: 1px solid var(--line-color, #d0d7de);
+  padding: 0.14rem 0.48rem;
+  font-size: 0.72rem;
+  color: var(--sec-text-color, #5c6b77);
 }
 
 @media (max-width: 767.98px) {
   .home-explore {
     margin-top: 2.4rem;
   }
+
+  .home-explore-results {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .home-explore-results {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 </style>
 
+
+
 <section class="home-explore">
-  <h2 class="home-explore-heading">Browse by Tag</h2>
-  <p class="home-explore-intro">Click a tag to filter posts directly on this page.</p>
+  <h2 class="home-explore-heading">Explore</h2>
+  <p class="home-explore-intro">Browse all posts and projects by tag. Click a tag to filter.</p>
 
   <div class="home-explore-links">
     <a class="home-explore-link" href="/tags/">All Tags</a>
-    <a class="home-explore-link" href="/categories/">Browse Categories</a>
+    <a class="home-explore-link" href="/projects/">All Projects</a>
   </div>
 
   <div class="home-explore-tags" id="home-explore-tags">
-    <button class="home-explore-tag is-active" type="button" data-tag="">
-      All <span class="home-explore-tag-count">· 8</span>
+    <button class="ex-pill is-active" type="button" data-tag="" data-label="All">
+      All <span class="ex-pill-count">· 9</span>
+    </button>
+    <button class="ex-pill" type="button" data-tag="blog" data-label="blog">
+      blog <span class="ex-pill-count">· 8</span>
+    </button>
+    <button class="ex-pill" type="button" data-tag="projects" data-label="projects">
+      projects <span class="ex-pill-count">· 1</span>
     </button>
     
-      <button class="home-explore-tag" type="button" data-tag="CA">
-        CA <span class="home-explore-tag-count">· 2</span>
-      </button>
+      
+      
+        <button class="ex-pill" type="button" data-tag="CA" data-label="CA">
+          CA <span class="ex-pill-count">· 2</span>
+        </button>
+      
     
-      <button class="home-explore-tag" type="button" data-tag="CS181">
-        CS181 <span class="home-explore-tag-count">· 1</span>
-      </button>
+      
+      
+        <button class="ex-pill" type="button" data-tag="CS181" data-label="CS181">
+          CS181 <span class="ex-pill-count">· 1</span>
+        </button>
+      
     
-      <button class="home-explore-tag" type="button" data-tag="Learning">
-        Learning <span class="home-explore-tag-count">· 6</span>
-      </button>
+      
+      
+        <button class="ex-pill" type="button" data-tag="Learning" data-label="Learning">
+          Learning <span class="ex-pill-count">· 6</span>
+        </button>
+      
     
-      <button class="home-explore-tag" type="button" data-tag="Probability">
-        Probability <span class="home-explore-tag-count">· 3</span>
-      </button>
+      
+      
+        <button class="ex-pill" type="button" data-tag="Probability" data-label="Probability">
+          Probability <span class="ex-pill-count">· 3</span>
+        </button>
+      
     
-      <button class="home-explore-tag" type="button" data-tag="Tips">
-        Tips <span class="home-explore-tag-count">· 1</span>
-      </button>
+      
+      
+        <button class="ex-pill" type="button" data-tag="Tips" data-label="Tips">
+          Tips <span class="ex-pill-count">· 1</span>
+        </button>
+      
     
   </div>
 
-  <p class="home-explore-status" id="home-explore-status">Showing all posts.</p>
+  <p class="home-explore-status" id="home-explore-status">Showing all items.</p>
 
   <div class="home-explore-results" id="home-explore-results">
     
       
-      <div class="row mx-auto index-card" data-tags="Learning CS181">
+      
+      
+      <a class="ex-card" href="/2024/10/11/CS181-Artificial-Intelligence/" target="_self" data-tags="blog Learning CS181">
         
-          <div class="col-12 col-md-4 m-auto index-img">
-            <a href="/2024/10/11/CS181-Artificial-Intelligence/" target="_self">
-              <img src="/img/courses/CS181/wallhaven-ex57ok_2560x1440.png" srcset="/img/loading.gif" lazyload alt="CS181 Artificial Intelligence">
-            </a>
+          <img class="ex-card-img" src="/img/courses/CS181/wallhaven-ex57ok_2560x1440.png" srcset="/img/loading.gif" lazyload alt="CS181 Artificial Intelligence" loading="lazy">
+        
+        <div class="ex-card-body">
+          <div class="ex-card-top">
+            <span class="ex-badge ex-badge-blog">Blog</span>
+            <span class="ex-card-date">2024-10-11</span>
           </div>
-        
-        <article class="col-12 col-md-8 mx-auto index-info">
-          <h2 class="index-header">
-            <a href="/2024/10/11/CS181-Artificial-Intelligence/" target="_self">
-              CS181 Artificial Intelligence
-            </a>
-          </h2>
-
+          <h3 class="ex-card-title">CS181 Artificial Intelligence</h3>
           
-          <a class="index-excerpt " href="/2024/10/11/CS181-Artificial-Intelligence/" target="_self">
-            <div>
-              Notes of CS181
-            </div>
-          </a>
-
-          <div class="index-btm post-metas">
+          <p class="ex-card-desc">
+            Notes of CS181
+          </p>
+          <div class="ex-card-tags">
+            <span class="ex-card-tag">blog</span>
             
-              <div class="post-meta mr-3">
-                <i class="iconfont icon-date"></i>
-                <time datetime="2024-10-11 16:20" pubdate>
-                  2024-10-11
-                </time>
-              </div>
+              <span class="ex-card-tag">Learning</span>
             
-            
-              <div class="post-meta mr-3 d-flex align-items-center">
-                <i class="iconfont icon-category"></i>
-                
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/Courses/" class="category-chain-item">Courses</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/Courses/CS181/" class="category-chain-item">CS181</a>
-  
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-              </div>
-            
-            
-              <div class="post-meta">
-                <i class="iconfont icon-tags"></i>
-                
-                  <a href="/tags/Learning/">#Learning</a>
-                
-                  <a href="/tags/CS181/">#CS181</a>
-                
-              </div>
+              <span class="ex-card-tag">CS181</span>
             
           </div>
-        </article>
-      </div>
+        </div>
+      </a>
     
       
-      <div class="row mx-auto index-card" data-tags="CA Learning">
+      
+      
+      <a class="ex-card" href="/2024/04/22/CA-Midterm-2-Review/" target="_self" data-tags="blog CA Learning">
         
-          <div class="col-12 col-md-4 m-auto index-img">
-            <a href="/2024/04/22/CA-Midterm-2-Review/" target="_self">
-              <img src="/img/courses/CA-Midterm-1-Review/wallhaven-jxqgl5_2560x1440.jpg" srcset="/img/loading.gif" lazyload alt="CA Midterm_2 Review">
-            </a>
+          <img class="ex-card-img" src="/img/courses/CA-Midterm-1-Review/wallhaven-jxqgl5_2560x1440.jpg" srcset="/img/loading.gif" lazyload alt="CA Midterm_2 Review" loading="lazy">
+        
+        <div class="ex-card-body">
+          <div class="ex-card-top">
+            <span class="ex-badge ex-badge-blog">Blog</span>
+            <span class="ex-card-date">2024-04-22</span>
           </div>
-        
-        <article class="col-12 col-md-8 mx-auto index-info">
-          <h2 class="index-header">
-            <a href="/2024/04/22/CA-Midterm-2-Review/" target="_self">
-              CA Midterm_2 Review
-            </a>
-          </h2>
-
+          <h3 class="ex-card-title">CA Midterm_2 Review</h3>
           
-          <a class="index-excerpt " href="/2024/04/22/CA-Midterm-2-Review/" target="_self">
-            <div>
-              CS110 Second Midterm Review
-            </div>
-          </a>
-
-          <div class="index-btm post-metas">
+          <p class="ex-card-desc">
+            CS110 Second Midterm Review
+          </p>
+          <div class="ex-card-tags">
+            <span class="ex-card-tag">blog</span>
             
-              <div class="post-meta mr-3">
-                <i class="iconfont icon-date"></i>
-                <time datetime="2024-04-22 17:26" pubdate>
-                  2024-04-22
-                </time>
-              </div>
+              <span class="ex-card-tag">CA</span>
             
-            
-              <div class="post-meta mr-3 d-flex align-items-center">
-                <i class="iconfont icon-category"></i>
-                
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/Courses/" class="category-chain-item">Courses</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/Courses/CA/" class="category-chain-item">CA</a>
-  
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-              </div>
-            
-            
-              <div class="post-meta">
-                <i class="iconfont icon-tags"></i>
-                
-                  <a href="/tags/CA/">#CA</a>
-                
-                  <a href="/tags/Learning/">#Learning</a>
-                
-              </div>
+              <span class="ex-card-tag">Learning</span>
             
           </div>
-        </article>
-      </div>
+        </div>
+      </a>
     
       
-      <div class="row mx-auto index-card" data-tags="">
+      
+      
+      <a class="ex-card" href="/2024/04/18/Latex-in-Fluid/" target="_self" data-tags="blog">
         
-          <div class="col-12 col-md-4 m-auto index-img">
-            <a href="/2024/04/18/Latex-in-Fluid/" target="_self">
-              <img src="/img/some-problems/wallhaven-jxoxjm_2560x1440.jpg" srcset="/img/loading.gif" lazyload alt="Latex in Fluid">
-            </a>
+          <img class="ex-card-img" src="/img/some-problems/wallhaven-jxoxjm_2560x1440.jpg" srcset="/img/loading.gif" lazyload alt="Latex in Fluid" loading="lazy">
+        
+        <div class="ex-card-body">
+          <div class="ex-card-top">
+            <span class="ex-badge ex-badge-blog">Blog</span>
+            <span class="ex-card-date">2024-04-18</span>
           </div>
-        
-        <article class="col-12 col-md-8 mx-auto index-info">
-          <h2 class="index-header">
-            <a href="/2024/04/18/Latex-in-Fluid/" target="_self">
-              Latex in Fluid
-            </a>
-          </h2>
-
+          <h3 class="ex-card-title">Latex in Fluid</h3>
           
-          <a class="index-excerpt " href="/2024/04/18/Latex-in-Fluid/" target="_self">
-            <div>
-              Something that is useful in Fluid
-            </div>
-          </a>
-
-          <div class="index-btm post-metas">
-            
-              <div class="post-meta mr-3">
-                <i class="iconfont icon-date"></i>
-                <time datetime="2024-04-18 16:39" pubdate>
-                  2024-04-18
-                </time>
-              </div>
-            
-            
-              <div class="post-meta mr-3 d-flex align-items-center">
-                <i class="iconfont icon-category"></i>
-                
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/Tips/" class="category-chain-item">Tips</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/Tips/Fluid/" class="category-chain-item">Fluid</a>
-  
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-              </div>
-            
+          <p class="ex-card-desc">
+            Something that is useful in Fluid
+          </p>
+          <div class="ex-card-tags">
+            <span class="ex-card-tag">blog</span>
             
           </div>
-        </article>
-      </div>
+        </div>
+      </a>
     
       
-      <div class="row mx-auto index-card" data-tags="Learning Probability">
+      
+      
+      <a class="ex-card" href="/2024/04/18/Joint-Ditribution/" target="_self" data-tags="blog Learning Probability">
         
-        <article class="col-12 col-md-12 mx-auto index-info">
-          <h2 class="index-header">
-            <a href="/2024/04/18/Joint-Ditribution/" target="_self">
-              Joint Ditribution
-            </a>
-          </h2>
-
+        <div class="ex-card-body">
+          <div class="ex-card-top">
+            <span class="ex-badge ex-badge-blog">Blog</span>
+            <span class="ex-card-date">2024-04-18</span>
+          </div>
+          <h3 class="ex-card-title">Joint Ditribution</h3>
           
-          <a class="index-excerpt index-excerpt__noimg" href="/2024/04/18/Joint-Ditribution/" target="_self">
-            <div>
-              Lecture_6 Joint Ditribution Contents Lecture_6 1. Discrete Multivariate R.V.s 2. Continuous Multivariate R.V.s 3. Covariance and Correlation 4. Multinomial Distribution 5. Multivariate Normal 6. Chang
-            </div>
-          </a>
-
-          <div class="index-btm post-metas">
+          <p class="ex-card-desc">
+            Lecture_6 Joint Ditribution Contents Lecture_6 1. Discrete Multivariate R.V.s 2. Continuous Multivariate R.V.s 3. Covariance and Correlation
+          </p>
+          <div class="ex-card-tags">
+            <span class="ex-card-tag">blog</span>
             
-              <div class="post-meta mr-3">
-                <i class="iconfont icon-date"></i>
-                <time datetime="2024-04-18 15:07" pubdate>
-                  2024-04-18
-                </time>
-              </div>
+              <span class="ex-card-tag">Learning</span>
             
-            
-              <div class="post-meta mr-3 d-flex align-items-center">
-                <i class="iconfont icon-category"></i>
-                
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/Courses/" class="category-chain-item">Courses</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/Courses/SI140A/" class="category-chain-item">SI140A</a>
-  
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-              </div>
-            
-            
-              <div class="post-meta">
-                <i class="iconfont icon-tags"></i>
-                
-                  <a href="/tags/Learning/">#Learning</a>
-                
-                  <a href="/tags/Probability/">#Probability</a>
-                
-              </div>
+              <span class="ex-card-tag">Probability</span>
             
           </div>
-        </article>
-      </div>
+        </div>
+      </a>
     
       
-      <div class="row mx-auto index-card" data-tags="Learning Probability">
+      
+      
+      <a class="ex-card" href="/2024/04/17/Continuous-Random-Variables/" target="_self" data-tags="blog Learning Probability">
         
-        <article class="col-12 col-md-12 mx-auto index-info">
-          <h2 class="index-header">
-            <a href="/2024/04/17/Continuous-Random-Variables/" target="_self">
-              Continuous Random Variables
-            </a>
-          </h2>
-
+        <div class="ex-card-body">
+          <div class="ex-card-top">
+            <span class="ex-badge ex-badge-blog">Blog</span>
+            <span class="ex-card-date">2024-04-18</span>
+          </div>
+          <h3 class="ex-card-title">Continuous Random Variables</h3>
           
-          <a class="index-excerpt index-excerpt__noimg" href="/2024/04/17/Continuous-Random-Variables/" target="_self">
-            <div>
-              Lecture_5 Continuous Random Variables Contents   Lecture_5   1. PDF & CDF   2. Uniform Distribution   3. Basic Monte Carlo Simulation   4. Exponential Distribution   5. Normal Distribution   6. Centra
-            </div>
-          </a>
-
-          <div class="index-btm post-metas">
+          <p class="ex-card-desc">
+            Lecture_5 Continuous Random Variables Contents   Lecture_5   1. PDF & CDF   2. Uniform Distribution   3. Basic Monte Carlo Simulation   4. E
+          </p>
+          <div class="ex-card-tags">
+            <span class="ex-card-tag">blog</span>
             
-              <div class="post-meta mr-3">
-                <i class="iconfont icon-date"></i>
-                <time datetime="2024-04-18 00:07" pubdate>
-                  2024-04-18
-                </time>
-              </div>
+              <span class="ex-card-tag">Learning</span>
             
-            
-              <div class="post-meta mr-3 d-flex align-items-center">
-                <i class="iconfont icon-category"></i>
-                
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/Courses/" class="category-chain-item">Courses</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/Courses/SI140A/" class="category-chain-item">SI140A</a>
-  
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-              </div>
-            
-            
-              <div class="post-meta">
-                <i class="iconfont icon-tags"></i>
-                
-                  <a href="/tags/Learning/">#Learning</a>
-                
-                  <a href="/tags/Probability/">#Probability</a>
-                
-              </div>
+              <span class="ex-card-tag">Probability</span>
             
           </div>
-        </article>
-      </div>
+        </div>
+      </a>
     
       
-      <div class="row mx-auto index-card" data-tags="Learning Probability">
+      
+      
+      <a class="ex-card" href="/2024/04/17/probability/" target="_self" data-tags="blog Learning Probability">
         
-          <div class="col-12 col-md-4 m-auto index-img">
-            <a href="/2024/04/17/probability/" target="_self">
-              <img src="/img/courses/probability/wallhaven-zyrq1v_1500x1500.jpg" srcset="/img/loading.gif" lazyload alt="Notes for Probability">
-            </a>
+          <img class="ex-card-img" src="/img/courses/probability/wallhaven-zyrq1v_1500x1500.jpg" srcset="/img/loading.gif" lazyload alt="Notes for Probability" loading="lazy">
+        
+        <div class="ex-card-body">
+          <div class="ex-card-top">
+            <span class="ex-badge ex-badge-blog">Blog</span>
+            <span class="ex-card-date">2024-04-17</span>
           </div>
-        
-        <article class="col-12 col-md-8 mx-auto index-info">
-          <h2 class="index-header">
-            <a href="/2024/04/17/probability/" target="_self">
-              Notes for Probability
-            </a>
-          </h2>
-
+          <h3 class="ex-card-title">Notes for Probability</h3>
           
-          <a class="index-excerpt " href="/2024/04/17/probability/" target="_self">
-            <div>
-              Notes for Probability
-            </div>
-          </a>
-
-          <div class="index-btm post-metas">
+          <p class="ex-card-desc">
+            Notes for Probability
+          </p>
+          <div class="ex-card-tags">
+            <span class="ex-card-tag">blog</span>
             
-              <div class="post-meta mr-3">
-                <i class="iconfont icon-date"></i>
-                <time datetime="2024-04-17 21:01" pubdate>
-                  2024-04-17
-                </time>
-              </div>
+              <span class="ex-card-tag">Learning</span>
             
-            
-              <div class="post-meta mr-3 d-flex align-items-center">
-                <i class="iconfont icon-category"></i>
-                
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/Courses/" class="category-chain-item">Courses</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/Courses/SI140A/" class="category-chain-item">SI140A</a>
-  
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-              </div>
-            
-            
-              <div class="post-meta">
-                <i class="iconfont icon-tags"></i>
-                
-                  <a href="/tags/Learning/">#Learning</a>
-                
-                  <a href="/tags/Probability/">#Probability</a>
-                
-              </div>
+              <span class="ex-card-tag">Probability</span>
             
           </div>
-        </article>
-      </div>
+        </div>
+      </a>
     
       
-      <div class="row mx-auto index-card" data-tags="Tips">
+      
+      
+      <a class="ex-card" href="/2024/04/16/some-problems/" target="_self" data-tags="blog Tips">
         
-          <div class="col-12 col-md-4 m-auto index-img">
-            <a href="/2024/04/16/some-problems/" target="_self">
-              <img src="/img/some-problems/wallhaven-jxoxjm_2560x1440.jpg" srcset="/img/loading.gif" lazyload alt="一些小技巧">
-            </a>
+          <img class="ex-card-img" src="/img/some-problems/wallhaven-jxoxjm_2560x1440.jpg" srcset="/img/loading.gif" lazyload alt="一些小技巧" loading="lazy">
+        
+        <div class="ex-card-body">
+          <div class="ex-card-top">
+            <span class="ex-badge ex-badge-blog">Blog</span>
+            <span class="ex-card-date">2024-04-16</span>
           </div>
-        
-        <article class="col-12 col-md-8 mx-auto index-info">
-          <h2 class="index-header">
-            <a href="/2024/04/16/some-problems/" target="_self">
-              一些小技巧
-            </a>
-          </h2>
-
+          <h3 class="ex-card-title">一些小技巧</h3>
           
-          <a class="index-excerpt " href="/2024/04/16/some-problems/" target="_self">
-            <div>
-              Something needs to notice
-            </div>
-          </a>
-
-          <div class="index-btm post-metas">
+          <p class="ex-card-desc">
+            Something needs to notice
+          </p>
+          <div class="ex-card-tags">
+            <span class="ex-card-tag">blog</span>
             
-              <div class="post-meta mr-3">
-                <i class="iconfont icon-date"></i>
-                <time datetime="2024-04-16 22:36" pubdate>
-                  2024-04-16
-                </time>
-              </div>
-            
-            
-              <div class="post-meta mr-3 d-flex align-items-center">
-                <i class="iconfont icon-category"></i>
-                
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/Tips/" class="category-chain-item">Tips</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/Tips/Fluid/" class="category-chain-item">Fluid</a>
-  
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-              </div>
-            
-            
-              <div class="post-meta">
-                <i class="iconfont icon-tags"></i>
-                
-                  <a href="/tags/Tips/">#Tips</a>
-                
-              </div>
+              <span class="ex-card-tag">Tips</span>
             
           </div>
-        </article>
-      </div>
+        </div>
+      </a>
     
       
-      <div class="row mx-auto index-card" data-tags="CA Learning">
+      
+      
+      <a class="ex-card" href="/2024/04/12/CA-Midterm-1-Review/" target="_self" data-tags="blog CA Learning">
         
-          <div class="col-12 col-md-4 m-auto index-img">
-            <a href="/2024/04/12/CA-Midterm-1-Review/" target="_self">
-              <img src="/img/courses/CA-Midterm-1-Review/wallhaven-jxqgl5_2560x1440.jpg" srcset="/img/loading.gif" lazyload alt="CA-Midterm_1-Review">
-            </a>
+          <img class="ex-card-img" src="/img/courses/CA-Midterm-1-Review/wallhaven-jxqgl5_2560x1440.jpg" srcset="/img/loading.gif" lazyload alt="CA-Midterm_1-Review" loading="lazy">
+        
+        <div class="ex-card-body">
+          <div class="ex-card-top">
+            <span class="ex-badge ex-badge-blog">Blog</span>
+            <span class="ex-card-date">2024-04-12</span>
           </div>
-        
-        <article class="col-12 col-md-8 mx-auto index-info">
-          <h2 class="index-header">
-            <a href="/2024/04/12/CA-Midterm-1-Review/" target="_self">
-              CA-Midterm_1-Review
-            </a>
-          </h2>
-
+          <h3 class="ex-card-title">CA-Midterm_1-Review</h3>
           
-          <a class="index-excerpt " href="/2024/04/12/CA-Midterm-1-Review/" target="_self">
-            <div>
-              CS110 First Midterm Review
-            </div>
-          </a>
-
-          <div class="index-btm post-metas">
+          <p class="ex-card-desc">
+            CS110 First Midterm Review
+          </p>
+          <div class="ex-card-tags">
+            <span class="ex-card-tag">blog</span>
             
-              <div class="post-meta mr-3">
-                <i class="iconfont icon-date"></i>
-                <time datetime="2024-04-12 12:47" pubdate>
-                  2024-04-12
-                </time>
-              </div>
+              <span class="ex-card-tag">CA</span>
             
-            
-              <div class="post-meta mr-3 d-flex align-items-center">
-                <i class="iconfont icon-category"></i>
-                
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/Courses/" class="category-chain-item">Courses</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/Courses/CA/" class="category-chain-item">CA</a>
-  
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-              </div>
-            
-            
-              <div class="post-meta">
-                <i class="iconfont icon-tags"></i>
-                
-                  <a href="/tags/CA/">#CA</a>
-                
-                  <a href="/tags/Learning/">#Learning</a>
-                
-              </div>
+              <span class="ex-card-tag">Learning</span>
             
           </div>
-        </article>
-      </div>
+        </div>
+      </a>
+    
+
+    
+      <a class="ex-card" href="/projects/" data-tags="projects python meshy 3d-modeling llm">
+        
+          <img class="ex-card-img" src="/img/projects/gpa40.svg" srcset="/img/loading.gif" lazyload alt="GPA4.0 - AI-Powered Product Design Studio" loading="lazy">
+        
+        <div class="ex-card-body">
+          <div class="ex-card-top">
+            <span class="ex-badge ex-badge-project">Project</span>
+            <span class="ex-card-date">2025</span>
+          </div>
+          <h3 class="ex-card-title">GPA4.0 - AI-Powered Product Design Studio</h3>
+          <p class="ex-card-desc">Transforms ideas into market-ready design packages through a five-phase workflow that covers strategy, image generation, and 3D modeling.</p>
+          <div class="ex-card-tags">
+            
+              <span class="ex-card-tag">projects</span>
+            
+              <span class="ex-card-tag">python</span>
+            
+              <span class="ex-card-tag">meshy</span>
+            
+              <span class="ex-card-tag">3d-modeling</span>
+            
+          </div>
+        </div>
+      </a>
     
   </div>
 </section>
@@ -1407,47 +1201,51 @@
   (function() {
     var tagBar = document.getElementById('home-explore-tags');
     var status = document.getElementById('home-explore-status');
-    var cards = Array.prototype.slice.call(document.querySelectorAll('#home-explore-results .index-card'));
+    var cards = Array.prototype.slice.call(document.querySelectorAll('#home-explore-results .ex-card'));
 
-    if (!tagBar || !status || !cards.length) return;
+    if (tagBar === null || status === null || cards.length === 0) return;
 
-    function decodeTag(encodedTag) {
-      return encodedTag ? decodeURIComponent(encodedTag) : '';
+    function decodeTag(tag) {
+      if (tag === undefined || tag === null || tag === '') return '';
+      try {
+        return decodeURIComponent(tag);
+      } catch (error) {
+        return tag;
+      }
     }
 
-    function applyFilter(encodedTag) {
+    function applyFilter(tagValue, label) {
       var visibleCount = 0;
-      var activeLabel = 'all posts';
+      var activeLabel = label || decodeTag(tagValue) || 'All';
 
-      Array.prototype.forEach.call(tagBar.querySelectorAll('.home-explore-tag'), function(button) {
-        button.classList.toggle('is-active', button.dataset.tag === encodedTag);
-        if (button.dataset.tag === encodedTag && encodedTag) {
-          activeLabel = decodeTag(encodedTag);
-        }
+      Array.prototype.forEach.call(tagBar.querySelectorAll('.ex-pill'), function(button) {
+        button.classList.toggle('is-active', button.dataset.tag === tagValue);
       });
 
       cards.forEach(function(card) {
-        var tags = card.dataset.tags ? card.dataset.tags.split(' ').filter(Boolean) : [];
-        var show = !encodedTag || tags.indexOf(encodedTag) !== -1;
-        card.classList.toggle('is-hidden', !show);
-        if (show) visibleCount += 1;
+        var tags = (card.dataset.tags || '').split(' ').filter(Boolean);
+        var show = (tagValue === '' || tags.indexOf(tagValue) !== -1);
+        card.classList.toggle('is-hidden', show === false);
+        if (show === true) visibleCount += 1;
       });
 
-      if (!encodedTag) {
-        status.textContent = 'Showing all posts.';
+      if (tagValue === '') {
+        status.textContent = 'Showing all items (' + visibleCount + ').';
         return;
       }
 
-      status.textContent = visibleCount
-        ? 'Showing ' + visibleCount + ' post' + (visibleCount > 1 ? 's' : '') + ' tagged with "' + activeLabel + '".'
-        : 'No posts found for "' + activeLabel + '".';
+      status.textContent = visibleCount > 0
+        ? 'Showing ' + visibleCount + ' item' + (visibleCount > 1 ? 's' : '') + ' tagged with "' + activeLabel + '".'
+        : 'No items found for "' + activeLabel + '".';
     }
 
     tagBar.addEventListener('click', function(event) {
-      var button = event.target.closest('.home-explore-tag');
-      if (!button) return;
-      applyFilter(button.dataset.tag || '');
+      var button = event.target.closest('.ex-pill');
+      if (button === null) return;
+      applyFilter(button.dataset.tag || '', button.dataset.label || '');
     });
+
+    applyFilter('', 'All');
   })();
 </script>
 
