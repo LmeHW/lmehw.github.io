@@ -30,7 +30,7 @@
 <meta property="og:image" content="http://lmehw.github.io/img/about/outdoors/skiing.png">
 <meta property="og:image" content="http://lmehw.github.io/img/about/outdoors/hiking.png">
 <meta property="article:published_time" content="2024-04-16T10:17:18.000Z">
-<meta property="article:modified_time" content="2026-04-10T15:12:30.574Z">
+<meta property="article:modified_time" content="2026-04-10T17:54:12.762Z">
 <meta property="article:author" content="LmeHW">
 <meta property="article:tag" content="学习笔记">
 <meta name="twitter:card" content="summary_large_image">
@@ -156,7 +156,7 @@
           
             <li class="nav-item">
               <a class="nav-link" href="/" target="_self">
-                <i class="iconfont icon-home-fill"></i>
+                <i class="iconfont icon-th-large"></i>
                 <span>Home</span>
               </a>
             </li>
@@ -168,8 +168,8 @@
           
             <li class="nav-item">
               <a class="nav-link" href="/archives/" target="_self">
-                <i class="iconfont icon-archive-fill"></i>
-                <span>Archive</span>
+                <i class="iconfont icon-books"></i>
+                <span>Blogs</span>
               </a>
             </li>
           
@@ -180,7 +180,7 @@
           
             <li class="nav-item">
               <a class="nav-link" href="/projects/" target="_self">
-                <i class="iconfont icon-code-fill"></i>
+                <i class="iconfont icon-briefcase"></i>
                 <span>Projects</span>
               </a>
             </li>
@@ -192,7 +192,7 @@
           
             <li class="nav-item">
               <a class="nav-link" href="/about/" target="_self">
-                <i class="iconfont icon-user-fill"></i>
+                <i class="iconfont icon-note"></i>
                 <span>About</span>
               </a>
             </li>
@@ -276,6 +276,18 @@
           
         </a>
       
+        
+        
+        
+        <a href=mailto:lmehw.harry@gmail.com class="
+           hint--bottom hint--rounded"
+           aria-label=Email
+           target="_blank"
+        >
+          <i class="iconfont icon-mail" aria-hidden="true"></i>
+          
+        </a>
+      
     </div>
   </div>
 </div>
@@ -293,6 +305,10 @@
   --ab-timeline-border: #cbd5e1;   /* visible against white glass */
   --ab-card-bg:         #ffffff;
   --ab-card-border:     #e2e8f0;
+  --ab-glass-bg:        rgba(255, 255, 255, 0.62);
+  --ab-glass-border:    rgba(226, 232, 240, 0.75);
+  --ab-glass-shadow:    rgba(15, 23, 42, 0.08);
+  --ab-glass-shadow-hover: rgba(15, 23, 42, 0.14);
   --ab-placeholder-bg:  #f1f5f9;
   --ab-placeholder-fg:  #94a3b8;
 }
@@ -308,6 +324,10 @@
     --ab-timeline-border: #435266;
     --ab-card-bg:         #252d38;
     --ab-card-border:     #435266;
+    --ab-glass-bg:        rgba(37, 45, 56, 0.55);
+    --ab-glass-border:    rgba(67, 82, 102, 0.78);
+    --ab-glass-shadow:    rgba(0,0,0,0.28);
+    --ab-glass-shadow-hover: rgba(0,0,0,0.36);
     --ab-placeholder-bg:  #2e3848;
     --ab-placeholder-fg:  #687582;
   }
@@ -323,6 +343,10 @@ html[data-user-color-scheme='dark'] {
   --ab-timeline-border: #435266;
   --ab-card-bg:         #252d38;
   --ab-card-border:     #435266;
+  --ab-glass-bg:        rgba(37, 45, 56, 0.55);
+  --ab-glass-border:    rgba(67, 82, 102, 0.78);
+  --ab-glass-shadow:    rgba(0,0,0,0.28);
+  --ab-glass-shadow-hover: rgba(0,0,0,0.36);
   --ab-placeholder-bg:  #2e3848;
   --ab-placeholder-fg:  #687582;
 }
@@ -416,10 +440,19 @@ html[data-user-color-scheme='dark'] {
 }
 
 .ab-art-card {
-  border: 1px solid var(--ab-card-border);
-  border-radius: 6px;
+  border: 1px solid var(--ab-glass-border);
+  border-radius: 14px;
   overflow: hidden;
-  background: var(--ab-card-bg);
+  background: var(--ab-glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 10px 24px var(--ab-glass-shadow);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.ab-art-card:hover {
+  box-shadow: 0 14px 30px var(--ab-glass-shadow-hover);
+  border-color: color-mix(in srgb, var(--ab-accent) 35%, var(--ab-glass-border) 65%);
 }
 
 .ab-art-placeholder {

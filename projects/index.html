@@ -16,20 +16,16 @@
   <meta name="author" content="LmeHW">
   <meta name="keywords" content="学习笔记">
   
-    <meta name="description" content="&#x2F;* ── Projects page — CSS variables (light mode defaults) ─────────── *&#x2F; :root {   --pj-accent:         #1d4ed8;   --pj-text-primary:   #1e293b;   --pj-text-secondary: #475569;   --pj-text-date:">
-<meta property="og:type" content="website">
+    <meta property="og:type" content="website">
 <meta property="og:title" content="Projects">
 <meta property="og:url" content="http://lmehw.github.io/projects/index.html">
 <meta property="og:site_name" content="LmeHW&#39;s Blog">
-<meta property="og:description" content="&#x2F;* ── Projects page — CSS variables (light mode defaults) ─────────── *&#x2F; :root {   --pj-accent:         #1d4ed8;   --pj-text-primary:   #1e293b;   --pj-text-secondary: #475569;   --pj-text-date:">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://lmehw.github.io/img/projects/gpa40.svg">
 <meta property="article:published_time" content="2024-04-16T10:17:18.000Z">
-<meta property="article:modified_time" content="2026-04-10T15:12:30.785Z">
+<meta property="article:modified_time" content="2026-04-10T17:54:12.974Z">
 <meta property="article:author" content="LmeHW">
 <meta property="article:tag" content="学习笔记">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://lmehw.github.io/img/projects/gpa40.svg">
   
   
   
@@ -145,7 +141,7 @@
           
             <li class="nav-item">
               <a class="nav-link" href="/" target="_self">
-                <i class="iconfont icon-home-fill"></i>
+                <i class="iconfont icon-th-large"></i>
                 <span>Home</span>
               </a>
             </li>
@@ -157,8 +153,8 @@
           
             <li class="nav-item">
               <a class="nav-link" href="/archives/" target="_self">
-                <i class="iconfont icon-archive-fill"></i>
-                <span>Archive</span>
+                <i class="iconfont icon-books"></i>
+                <span>Blogs</span>
               </a>
             </li>
           
@@ -169,7 +165,7 @@
           
             <li class="nav-item">
               <a class="nav-link" href="/projects/" target="_self">
-                <i class="iconfont icon-code-fill"></i>
+                <i class="iconfont icon-briefcase"></i>
                 <span>Projects</span>
               </a>
             </li>
@@ -181,7 +177,7 @@
           
             <li class="nav-item">
               <a class="nav-link" href="/about/" target="_self">
-                <i class="iconfont icon-user-fill"></i>
+                <i class="iconfont icon-note"></i>
                 <span>About</span>
               </a>
             </li>
@@ -243,93 +239,95 @@
               <div class="col-12 col-md-10 m-auto">
                 
 
-<article class="page-content">
-  <style>
-/* ── Projects page — CSS variables (light mode defaults) ─────────── */
+<style>
 :root {
-  --pj-accent:         #1d4ed8;
-  --pj-text-primary:   #1e293b;
+  --pj-accent: #1d4ed8;
+  --pj-text-primary: #1e293b;
   --pj-text-secondary: #475569;
-  --pj-text-date:      #64748b;
-  --pj-card-bg:        #ffffff;
-  --pj-card-border:    #e2e8f0;
-  --pj-card-shadow:    rgba(0,0,0,0.06);
-  --pj-card-shadow-hover: rgba(0,0,0,0.10);
-  --pj-tag-bg:         #dbeafe;
-  --pj-tag-color:      #1d4ed8;
-  --pj-btn-primary-bg: #1e293b;
-  --pj-btn-primary-hover: #0f172a;
-  --pj-btn-outline-bg-hover: #dbeafe;
-  --pj-btn-outline-hover-color: #1e3a8a;
-  --pj-placeholder-bg: #f1f5f9;
-  --pj-placeholder-fg: #94a3b8;
-  --pj-placeholder-border: #cbd5e1;
+  --pj-text-date: #64748b;
+  --pj-glass-bg: rgba(255, 255, 255, 0.62);
+  --pj-glass-border: rgba(226, 232, 240, 0.75);
+  --pj-glass-shadow: rgba(15, 23, 42, 0.08);
+  --pj-glass-shadow-hover: rgba(15, 23, 42, 0.14);
+  --pj-tag-bg: #dbeafe;
+  --pj-tag-color: #1d4ed8;
+  --pj-btn-code-bg: #e2e8f0;
+  --pj-btn-code-hover: #d4dde8;
+  --pj-btn-code-text: #334155;
+  --pj-btn-report-bg: #dbeafe;
+  --pj-btn-report-hover: #c7defd;
+  --pj-btn-report-text: #1e40af;
 }
 
-/* ── Dark mode — OS preference ───────────────────────────────────── */
 @media (prefers-color-scheme: dark) {
   html:not([data-user-color-scheme='light']) {
-    --pj-accent:         #5b8ef0;
-    --pj-text-primary:   #c4c6c9;
+    --pj-accent: #5b8ef0;
+    --pj-text-primary: #c4c6c9;
     --pj-text-secondary: #a7a9ad;
-    --pj-text-date:      #6b7f92;
-    --pj-card-bg:        #252d38;
-    --pj-card-border:    #435266;
-    --pj-card-shadow:    rgba(0,0,0,0.25);
-    --pj-card-shadow-hover: rgba(0,0,0,0.35);
-    --pj-tag-bg:         #364151;
-    --pj-tag-color:      #5b8ef0;
-    --pj-btn-primary-bg: #3d5166;
-    --pj-btn-primary-hover: #4a6278;
-    --pj-btn-outline-bg-hover: #364151;
-    --pj-btn-outline-hover-color: #7aaef5;
-    --pj-placeholder-bg: #2e3848;
-    --pj-placeholder-fg: #687582;
-    --pj-placeholder-border: #435266;
+    --pj-text-date: #6b7f92;
+    --pj-glass-bg: rgba(37, 45, 56, 0.55);
+    --pj-glass-border: rgba(67, 82, 102, 0.78);
+    --pj-glass-shadow: rgba(0, 0, 0, 0.28);
+    --pj-glass-shadow-hover: rgba(0, 0, 0, 0.36);
+    --pj-tag-bg: #364151;
+    --pj-tag-color: #7aaef5;
+    --pj-btn-code-bg: #374151;
+    --pj-btn-code-hover: #425067;
+    --pj-btn-code-text: #d1d5db;
+    --pj-btn-report-bg: #1e3a5f;
+    --pj-btn-report-hover: #25496f;
+    --pj-btn-report-text: #bfdbfe;
   }
 }
 
-/* ── Dark mode — Fluid toggle ────────────────────────────────────── */
 html[data-user-color-scheme='dark'] {
-  --pj-accent:         #5b8ef0;
-  --pj-text-primary:   #c4c6c9;
+  --pj-accent: #5b8ef0;
+  --pj-text-primary: #c4c6c9;
   --pj-text-secondary: #a7a9ad;
-  --pj-text-date:      #6b7f92;
-  --pj-card-bg:        #252d38;
-  --pj-card-border:    #435266;
-  --pj-card-shadow:    rgba(0,0,0,0.25);
-  --pj-card-shadow-hover: rgba(0,0,0,0.35);
-  --pj-tag-bg:         #364151;
-  --pj-tag-color:      #5b8ef0;
-  --pj-btn-primary-bg: #3d5166;
-  --pj-btn-primary-hover: #4a6278;
-  --pj-btn-outline-bg-hover: #364151;
-  --pj-btn-outline-hover-color: #7aaef5;
-  --pj-placeholder-bg: #2e3848;
-  --pj-placeholder-fg: #687582;
-  --pj-placeholder-border: #435266;
+  --pj-text-date: #6b7f92;
+  --pj-glass-bg: rgba(37, 45, 56, 0.55);
+  --pj-glass-border: rgba(67, 82, 102, 0.78);
+  --pj-glass-shadow: rgba(0, 0, 0, 0.28);
+  --pj-glass-shadow-hover: rgba(0, 0, 0, 0.36);
+  --pj-tag-bg: #364151;
+  --pj-tag-color: #7aaef5;
+  --pj-btn-code-bg: #374151;
+  --pj-btn-code-hover: #425067;
+  --pj-btn-code-text: #d1d5db;
+  --pj-btn-report-bg: #1e3a5f;
+  --pj-btn-report-hover: #25496f;
+  --pj-btn-report-text: #bfdbfe;
 }
 
-/* ── Components ──────────────────────────────────────────────────── */
+.projects-intro {
+  max-width: 760px;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--pj-text-secondary);
+}
+
 .projects-grid {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  max-width: 720px;
-  margin: 2rem auto 0;
+  max-width: 760px;
+  margin: 1.5rem auto 0;
 }
 
 .project-card {
-  background: var(--pj-card-bg);
-  border: 1px solid var(--pj-card-border);
-  border-radius: 8px;
+  background: var(--pj-glass-bg);
+  border: 1px solid var(--pj-glass-border);
+  border-radius: 14px;
   padding: 1.5rem 1.75rem;
-  box-shadow: 0 1px 4px var(--pj-card-shadow);
-  transition: box-shadow 0.2s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 10px 24px var(--pj-glass-shadow);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .project-card:hover {
-  box-shadow: 0 3px 12px var(--pj-card-shadow-hover);
+  box-shadow: 0 14px 30px var(--pj-glass-shadow-hover);
+  border-color: color-mix(in srgb, var(--pj-accent) 35%, var(--pj-glass-border) 65%);
 }
 
 .project-header {
@@ -363,6 +361,19 @@ html[data-user-color-scheme='dark'] {
   margin: 0 0 1rem;
 }
 
+.project-img-wrap {
+  margin: 0.75rem 0 1rem;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.project-img-wrap img {
+  width: 100%;
+  max-height: 260px;
+  object-fit: cover;
+  display: block;
+}
+
 .project-tags {
   display: flex;
   flex-wrap: wrap;
@@ -378,7 +389,6 @@ html[data-user-color-scheme='dark'] {
   border-radius: 20px;
   font-size: 0.78rem;
   font-weight: 500;
-  letter-spacing: 0.01em;
 }
 
 .project-links {
@@ -390,104 +400,103 @@ html[data-user-color-scheme='dark'] {
 .btn {
   display: inline-block;
   padding: 0.38em 1em;
-  border-radius: 4px;
+  border-radius: 6px;
   font-size: 0.85rem;
   font-weight: 500;
   text-decoration: none;
-  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
-  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
 }
 
-.btn-primary {
-  background: var(--pj-btn-primary-bg);
-  color: #ffffff;
-  border: 1px solid var(--pj-btn-primary-bg);
+.btn:hover {
+  transform: translateY(-1px);
 }
 
-.btn-primary:hover {
-  background: var(--pj-btn-primary-hover);
-  border-color: var(--pj-btn-primary-hover);
-  color: #ffffff;
+.btn-code {
+  background: var(--pj-btn-code-bg);
+  color: var(--pj-btn-code-text);
+  border: 1px solid color-mix(in srgb, var(--pj-btn-code-bg) 72%, var(--pj-btn-code-text) 28%);
 }
 
-.btn-outline {
-  background: transparent;
-  color: var(--pj-accent);
-  border: 1px solid var(--pj-accent);
+.btn-code:hover {
+  background: var(--pj-btn-code-hover);
+  border-color: color-mix(in srgb, var(--pj-btn-code-hover) 68%, var(--pj-btn-code-text) 32%);
+  color: var(--pj-btn-code-text);
 }
 
-.btn-outline:hover {
-  background: var(--pj-btn-outline-bg-hover);
-  color: var(--pj-btn-outline-hover-color);
-  border-color: var(--pj-btn-outline-hover-color);
+.btn-report {
+  background: var(--pj-btn-report-bg);
+  color: var(--pj-btn-report-text);
+  border: 1px solid color-mix(in srgb, var(--pj-btn-report-bg) 68%, var(--pj-btn-report-text) 32%);
 }
 
-/* ── Project image ───────────────────────────────────────────────── */
-.project-img-wrap {
-  margin: 0.75rem 0 1rem;
-  border-radius: 6px;
-  overflow: hidden;
+.btn-report:hover {
+  background: var(--pj-btn-report-hover);
+  border-color: color-mix(in srgb, var(--pj-btn-report-hover) 64%, var(--pj-btn-report-text) 36%);
+  color: var(--pj-btn-report-text);
 }
 
-.project-img-wrap img {
-  width: 100%;
-  max-height: 220px;
-  object-fit: cover;
-  display: block;
-}
-
-.project-img-placeholder {
-  height: 160px;
-  background: var(--pj-placeholder-bg);
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.82rem;
-  color: var(--pj-placeholder-fg);
-  border: 1px dashed var(--pj-placeholder-border);
-}
-
-/* ── Mobile ──────────────────────────────────────────────────────── */
-@media (max-width: 600px) {
+  @media (max-width: 600px) {
   .project-card { padding: 1.2rem 1.25rem; }
   .project-header { flex-direction: column; gap: 0.2rem; }
 }
 </style>
+
+
+
 <div class="projects-grid">
-  <div class="project-card">
-    <div class="project-header">
-      <h3 class="project-title">GPA4.0 — AI-Powered Product Design Studio</h3>
-      <span class="project-date">2025</span>
-    </div>
-    <p class="project-desc">
-      Transforms raw ideas into market-ready design packages through conversation. Guides users through
-      a structured five-phase workflow — from appearance design and commercial strategy to product positioning,
-      image generation, and 3D modeling — culminating in high-resolution 2D renders and interactive 3D models.
-      Features a glass-morphism interface with real-time chat, markdown rendering, and auto-generated project
-      thumbnails backed by a persistent local storage dashboard.
-    </p>
-    <div class="project-img-wrap">
-      <img src="/img/projects/gpa40.svg" srcset="/img/loading.gif" lazyload alt="GPA4.0 preview">
-    </div>
-    <div class="project-tags">
-      <span class="tag">Python</span>
-      <span class="tag">Meshy</span>
-      <span class="tag">3D Modeling</span>
-      <span class="tag">LLM</span>
-    </div>
-    <div class="project-links">
-      <a class="btn btn-primary" href="https://github.com/KesonStar/GPA4.0" target="_blank" rel="noopener">View Code</a>
-    </div>
-  </div>
-</div>
-
-
   
+    
+    
+    
+    
+    <div class="project-card">
+      <div class="project-header">
+        <h3 class="project-title">GPA4.0 — AI-Powered Product Design Studio</h3>
+        <span class="project-date">2025-05-16</span>
+      </div>
 
-</article>
+      <p class="project-desc">Transforms raw ideas into market-ready design packages through conversation. Guides users through a structured five-phase workflow, from appearance design and commercial strategy to product positioning, image generation, and 3D modeling, culminating in high-resolution 2D renders and interactive 3D models. Features a glass-morphism interface with real-time chat, markdown rendering, and auto-generated project thumbnails backed by a persistent local storage dashboard.</p>
 
+      
+        <div class="project-img-wrap">
+          <img src="/img/projects/gpa40.svg" srcset="/img/loading.gif" lazyload alt="GPA4.0 — AI-Powered Product Design Studio">
+        </div>
+      
 
+      
+        <div class="project-tags">
+          
+            <span class="tag">Python</span>
+          
+            <span class="tag">Meshy</span>
+          
+            <span class="tag">3D Modeling</span>
+          
+            <span class="tag">LLM</span>
+          
+        </div>
+      
+
+      <div class="project-links">
+        
+          
+            
+            
+            
+            <a class="btn btn-code" href="https://github.com/KesonStar/GPA4.0" target=&#34;_blank&#34; rel=&#34;noopener&#34;>View Code</a>
+          
+        
+          
+            
+            
+            
+            <a class="btn btn-report" href="/projects/reports/gpa40-mvp-report/" >View Report</a>
+          
+        
+      </div>
+    </div>
+  
+</div>
 
               </div>
             </div>

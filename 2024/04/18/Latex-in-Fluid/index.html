@@ -25,9 +25,9 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://lmehw.github.io/img/some-problems/wallhaven-jxoxjm_2560x1440.jpg">
 <meta property="article:published_time" content="2024-04-18T08:39:04.000Z">
-<meta property="article:modified_time" content="2026-04-10T15:12:30.574Z">
+<meta property="article:modified_time" content="2026-04-10T17:54:12.762Z">
 <meta property="article:author" content="LmeHW">
-<meta property="article:tag" content="学习笔记">
+<meta property="article:tag" content="LaTex">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://lmehw.github.io/img/some-problems/wallhaven-jxoxjm_2560x1440.jpg">
   
@@ -151,7 +151,7 @@
           
             <li class="nav-item">
               <a class="nav-link" href="/" target="_self">
-                <i class="iconfont icon-home-fill"></i>
+                <i class="iconfont icon-th-large"></i>
                 <span>Home</span>
               </a>
             </li>
@@ -163,8 +163,8 @@
           
             <li class="nav-item">
               <a class="nav-link" href="/archives/" target="_self">
-                <i class="iconfont icon-archive-fill"></i>
-                <span>Archive</span>
+                <i class="iconfont icon-books"></i>
+                <span>Blogs</span>
               </a>
             </li>
           
@@ -175,7 +175,7 @@
           
             <li class="nav-item">
               <a class="nav-link" href="/projects/" target="_self">
-                <i class="iconfont icon-code-fill"></i>
+                <i class="iconfont icon-briefcase"></i>
                 <span>Projects</span>
               </a>
             </li>
@@ -187,7 +187,7 @@
           
             <li class="nav-item">
               <a class="nav-link" href="/about/" target="_self">
-                <i class="iconfont icon-user-fill"></i>
+                <i class="iconfont icon-note"></i>
                 <span>About</span>
               </a>
             </li>
@@ -310,10 +310,10 @@
                 
                 <h2 id="LaTeX">$\LaTeX$</h2>
 <h3 id="关于换行">关于换行</h3>
-<p>由于Fluid在渲染latex公式时，会将<code>\\</code>替换为<code>\</code>，所以尝试<code>\\\\</code>来替换<code>\\</code>，但仍会出现无法正确渲染的问题。现给出几种解决办法。</p>
+<p>由于Fluid在渲染latex公式时，会将 <code>\\</code>替换为 <code>\</code>，所以尝试 <code>\\\\</code>来替换 <code>\\</code>，但仍会出现无法正确渲染的问题。现给出几种解决办法。</p>
 <figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs latex">方法一：结合‘<span class="hljs-built_in">&amp;</span>’与‘<span class="hljs-keyword">\\</span><span class="hljs-keyword">\\</span>’<br><span class="hljs-keyword">\begin</span>&#123;align&#125;<br><span class="hljs-keyword">\end</span>&#123;align&#125;<br>问题：无法自动居中，必须手动设置对齐<br><br>Example:<br><span class="hljs-built_in">$</span><span class="hljs-built_in">$</span><br><span class="hljs-keyword">\begin</span>&#123;align&#125;<br>(x+y)<span class="hljs-built_in">^</span>n <span class="hljs-built_in">&amp;</span>=<span class="hljs-keyword">\sum</span><span class="hljs-built_in">_</span>&#123;k=0&#125;<span class="hljs-built_in">^</span>n<span class="hljs-keyword">\binom</span> nkx<span class="hljs-built_in">^</span>&#123;n-k&#125;y<span class="hljs-built_in">^</span>k <span class="hljs-keyword">\\</span><span class="hljs-keyword">\\</span><br><span class="hljs-keyword">\binom</span> nk <span class="hljs-built_in">&amp;</span>=<span class="hljs-keyword">\frac</span>&#123;n!&#125;&#123;k!(n-k)!&#125;<br><span class="hljs-keyword">\end</span>&#123;align&#125;<br><span class="hljs-built_in">$</span><span class="hljs-built_in">$</span><br></code></pre></td></tr></table></figure>
-<p>效果：<br>
-$$<br>
+<p>效果：</p>
+<p>$$<br>
 \begin{align}<br>
 (x+y)^n &amp;=\sum_{k=0}^n\binom nkx^{n-k}y^k \\<br>
 \binom nk &amp;=\frac{n!}{k!(n-k)!}<br>
@@ -321,8 +321,8 @@ $$<br>
 $$</p>
 <figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs latex">方法二：gathered<br><span class="hljs-keyword">\begin</span>&#123;gathered&#125;<br><span class="hljs-keyword">\end</span>&#123;gathered&#125;<br><br>Example:<br><span class="hljs-built_in">$</span><span class="hljs-built_in">$</span><br><span class="hljs-keyword">\begin</span>&#123;gathered&#125;<br><span class="hljs-keyword">\int</span><span class="hljs-built_in">_</span>&#123;-<span class="hljs-keyword">\infty</span>&#125;<span class="hljs-built_in">^</span><span class="hljs-keyword">\infty</span> e<span class="hljs-built_in">^</span>&#123;-x<span class="hljs-built_in">^</span>2&#125;dx=<span class="hljs-keyword">\sqrt</span>&#123;<span class="hljs-keyword">\pi</span>&#125; <span class="hljs-keyword">\\</span><span class="hljs-keyword">\\</span><br>I<span class="hljs-built_in">^</span>2=<span class="hljs-keyword">\left</span>(<span class="hljs-keyword">\int</span><span class="hljs-built_in">_</span>&#123;-<span class="hljs-keyword">\infty</span>&#125;<span class="hljs-built_in">^</span><span class="hljs-keyword">\infty</span> e<span class="hljs-built_in">^</span>&#123;-x<span class="hljs-built_in">^</span>2&#125;dx<span class="hljs-keyword">\right</span>)<span class="hljs-built_in">^</span>2 <span class="hljs-keyword">\\</span><span class="hljs-keyword">\\</span><br>I<span class="hljs-built_in">^</span>2=<span class="hljs-keyword">\int</span><span class="hljs-built_in">_</span>&#123;-<span class="hljs-keyword">\infty</span>&#125;<span class="hljs-built_in">^</span><span class="hljs-keyword">\infty</span> e<span class="hljs-built_in">^</span>&#123;-x<span class="hljs-built_in">^</span>2&#125;dx<span class="hljs-keyword">\int</span><span class="hljs-built_in">_</span>&#123;-<span class="hljs-keyword">\infty</span>&#125;<span class="hljs-built_in">^</span><span class="hljs-keyword">\infty</span> e<span class="hljs-built_in">^</span>&#123;-y<span class="hljs-built_in">^</span>2&#125;dy=<span class="hljs-keyword">\int</span><span class="hljs-built_in">_</span>&#123;-<span class="hljs-keyword">\infty</span>&#125;<span class="hljs-built_in">^</span><span class="hljs-keyword">\infty</span><span class="hljs-keyword">\int</span><span class="hljs-built_in">_</span>&#123;-<span class="hljs-keyword">\infty</span>&#125;<span class="hljs-built_in">^</span><span class="hljs-keyword">\infty</span> e<span class="hljs-built_in">^</span>&#123;-<span class="hljs-keyword">\left</span>(x<span class="hljs-built_in">^</span>2+y<span class="hljs-built_in">^</span>2<span class="hljs-keyword">\right</span>)&#125;dxdy<br><span class="hljs-keyword">\end</span>&#123;gathered&#125;<br><span class="hljs-built_in">$</span><span class="hljs-built_in">$</span><br></code></pre></td></tr></table></figure>
 <p>效果：<br>
-<strong>Show that:</strong><br>
-$$<br>
+<strong>Show that:</strong></p>
+<p>$$<br>
 \begin{gathered}<br>
 \int_{-\infty}^\infty e^{-x^2}dx=\sqrt{\pi} \\<br>
 \because I^2=\left(\int_{-\infty}^\infty e^{-x^2}dx\right)^2 \\<br>
@@ -332,10 +332,10 @@ $$</p>
 <h3 id="关于复杂公式无法渲染">关于复杂公式无法渲染</h3>
 <figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs latex">例如以下例子：<br><span class="hljs-built_in">$</span><span class="hljs-built_in">$</span><br><span class="hljs-keyword">\begin</span>&#123;align&#125;<br>    <span class="hljs-built_in">&amp;</span>S = (-1)<span class="hljs-built_in">^</span>&#123;<span class="hljs-keyword">\text</span>&#123;Sign&#125;&#125;<span class="hljs-keyword">\\</span><span class="hljs-keyword">\\</span><br>    <span class="hljs-built_in">&amp;</span>E = <span class="hljs-keyword">\text</span>&#123;Exponent&#125;<span class="hljs-built_in">_</span>2-127<span class="hljs-built_in">_</span>&#123;10&#125;<span class="hljs-keyword">\\</span><span class="hljs-keyword">\\</span><br>    <span class="hljs-built_in">&amp;</span>Value = S<span class="hljs-keyword">\times</span> M<span class="hljs-keyword">\times</span>2<span class="hljs-built_in">^</span>E<br>  <span class="hljs-keyword">\end</span>&#123;align&#125;<br><span class="hljs-built_in">$</span><span class="hljs-built_in">$</span><br></code></pre></td></tr></table></figure>
 <p>解决办法：<br>
-在下划线<code>_</code>前加上<code>\</code></p>
+在下划线 <code>_</code>前加上 <code>\</code></p>
 <figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs latex">+   <span class="hljs-built_in">&amp;</span>E = <span class="hljs-keyword">\text</span>&#123;Exponent&#125;<span class="hljs-keyword">\_</span>2-127<span class="hljs-built_in">_</span>&#123;10&#125;<span class="hljs-keyword">\\</span><span class="hljs-keyword">\\</span><br></code></pre></td></tr></table></figure>
 <h3 id="花括号无法显示">花括号无法显示</h3>
-<p>注意到<code>\</code>在Hexo对于数学公式渲染使用的渲染库中的意义：特殊字符，用于转义其他特殊字符。所以在<code>\&#123;</code>or<code>\&#125;</code>前加上<code>\</code>即可。</p>
+<p>注意到 <code>\</code>在Hexo对于数学公式渲染使用的渲染库中的意义：特殊字符，用于转义其他特殊字符。所以在 <code>\&#123;</code>or <code>\&#125;</code>前加上 <code>\</code>即可。</p>
 
                 
               </div>
@@ -373,6 +373,13 @@ $$</p>
     </div>
   
   
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/LaTex/" class="print-no-link">#LaTex</a>
+      
+    </div>
+  
 </div>
 
 
@@ -400,7 +407,7 @@ $$</p>
       
         <div class="license-meta-item license-meta-date">
           <div>Updated on</div>
-          <div>April 10, 2026</div>
+          <div>April 11, 2026</div>
         </div>
       
       
