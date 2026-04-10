@@ -1,0 +1,70 @@
+<%
+var layout = page.layout
+page.title = page.title || __(`${ layout }.title`)
+page.subtitle = page.subtitle || page.title || __(`${ layout }.subtitle`)
+page.banner_img = page.banner_img || theme.page.banner_img
+page.banner_img_height = page.banner_img_height || theme.page.banner_img_height
+page.banner_mask_alpha = page.banner_mask_alpha || theme.page.banner_mask_alpha
+
+var pdfPath = page.pdf_file || page.report_pdf || ''
+var pdfUrl = pdfPath ? url_for(pdfPath) : ''
+%>
+
+<style>
+.project-report-board {
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.project-report-meta {
+  margin-bottom: 1rem;
+  color: var(--sec-text-color, #5c6b77);
+  font-size: 0.92rem;
+}
+
+.project-report-frame-wrap {
+  border: 1px solid var(--line-color, #d0d7de);
+  border-radius: 14px;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--board-bg-color, #fff) 84%, var(--line-color, #d0d7de) 16%);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.1);
+}
+
+.project-report-frame {
+  width: 100%;
+  height: min(76vh, 980px);
+  border: 0;
+  display: block;
+}
+
+.project-report-actions {
+  margin-top: 0.8rem;
+}
+
+.project-report-actions a {
+  color: var(--link-color, #1d4ed8);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.project-report-actions a:hover {
+  text-decoration: underline;
+}
+</style>
+
+<article class="page-content project-report-board">
+  <% if (page.content && page.content.trim()) { %>
+    <div class="project-report-meta"><%- page.content %></div>
+  <% } %>
+
+  <% if (pdfUrl) { %>
+    <div class="project-report-frame-wrap">
+      <iframe class="project-report-frame" src="<%= pdfUrl %>" title="<%= page.title || 'Project Report' %>"></iframe>
+    </div>
+    <div class="project-report-actions">
+      <a href="<%= pdfUrl %>" target="_blank" rel="noopener">Open PDF in new tab</a>
+    </div>
+  <% } else { %>
+    <p class="project-report-meta">No PDF file configured.</p>
+  <% } %>
+</article>

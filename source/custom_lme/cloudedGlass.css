@@ -12,6 +12,17 @@
   color: #1d4ed8;
 }
 
+/* ── TOC readability (light mode) ─────────────────────────────── */
+.sidebar #toc .toc-header {
+  color: #0f172a;
+}
+.sidebar #toc .tocbot-link {
+  color: #334155;
+}
+.sidebar #toc .tocbot-active-link {
+  color: #1e40af;
+}
+
 /* ── Sidebar — dark mode (OS preference) ─────────────────────── */
 @media (prefers-color-scheme: dark) {
   html:not([data-user-color-scheme='light']) .sidebar {
@@ -19,6 +30,15 @@
   }
   html:not([data-user-color-scheme='light']) .sidebar a {
     color: #5b8ef0;
+  }
+  html:not([data-user-color-scheme='light']) .sidebar #toc .toc-header {
+    color: #e2e8f0;
+  }
+  html:not([data-user-color-scheme='light']) .sidebar #toc .tocbot-link {
+    color: #cbd5e1;
+  }
+  html:not([data-user-color-scheme='light']) .sidebar #toc .tocbot-active-link {
+    color: #93c5fd;
   }
 }
 
@@ -28,4 +48,13 @@ html[data-user-color-scheme='dark'] .sidebar {
 }
 html[data-user-color-scheme='dark'] .sidebar a {
   color: #5b8ef0;
+}
+html[data-user-color-scheme='dark'] .sidebar #toc .toc-header {
+  color: #e2e8f0;
+}
+html[data-user-color-scheme='dark'] .sidebar #toc .tocbot-link {
+  color: #cbd5e1;
+}
+html[data-user-color-scheme='dark'] .sidebar #toc .tocbot-active-link {
+  color: #93c5fd;
 }

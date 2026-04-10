@@ -1,0 +1,277 @@
+<%
+page.title = page.title || 'Projects'
+page.subtitle = page.subtitle || page.title
+page.banner_img = page.banner_img || theme.page.banner_img
+page.banner_img_height = page.banner_img_height || theme.page.banner_img_height
+page.banner_mask_alpha = page.banner_mask_alpha || theme.page.banner_mask_alpha
+
+var pages = typeof site.pages.toArray === 'function' ? site.pages.toArray() : site.pages
+var projectPages = pages
+  .filter(function(item) {
+    return item.source &&
+      /^projects\/project_.*\.md$/i.test(item.source)
+  })
+  .sort(function(a, b) {
+    return new Date(b.date || 0) - new Date(a.date || 0)
+  })
+
+function normalizeList(input) {
+  if (!input) return []
+  if (Array.isArray(input)) return input.filter(Boolean)
+  if (typeof input.toArray === 'function') return input.toArray().filter(Boolean)
+  if (typeof input.each === 'function') {
+    var arr = []
+    input.each(function(item) { arr.push(item) })
+    return arr.filter(Boolean)
+  }
+  return []
+}
+%>
+
+<style>
+:root {
+  --pj-accent: #1d4ed8;
+  --pj-text-primary: #1e293b;
+  --pj-text-secondary: #475569;
+  --pj-text-date: #64748b;
+  --pj-glass-bg: rgba(255, 255, 255, 0.62);
+  --pj-glass-border: rgba(226, 232, 240, 0.75);
+  --pj-glass-shadow: rgba(15, 23, 42, 0.08);
+  --pj-glass-shadow-hover: rgba(15, 23, 42, 0.14);
+  --pj-tag-bg: #dbeafe;
+  --pj-tag-color: #1d4ed8;
+  --pj-btn-code-bg: #e2e8f0;
+  --pj-btn-code-hover: #d4dde8;
+  --pj-btn-code-text: #334155;
+  --pj-btn-report-bg: #dbeafe;
+  --pj-btn-report-hover: #c7defd;
+  --pj-btn-report-text: #1e40af;
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-user-color-scheme='light']) {
+    --pj-accent: #5b8ef0;
+    --pj-text-primary: #c4c6c9;
+    --pj-text-secondary: #a7a9ad;
+    --pj-text-date: #6b7f92;
+    --pj-glass-bg: rgba(37, 45, 56, 0.55);
+    --pj-glass-border: rgba(67, 82, 102, 0.78);
+    --pj-glass-shadow: rgba(0, 0, 0, 0.28);
+    --pj-glass-shadow-hover: rgba(0, 0, 0, 0.36);
+    --pj-tag-bg: #364151;
+    --pj-tag-color: #7aaef5;
+    --pj-btn-code-bg: #374151;
+    --pj-btn-code-hover: #425067;
+    --pj-btn-code-text: #d1d5db;
+    --pj-btn-report-bg: #1e3a5f;
+    --pj-btn-report-hover: #25496f;
+    --pj-btn-report-text: #bfdbfe;
+  }
+}
+
+html[data-user-color-scheme='dark'] {
+  --pj-accent: #5b8ef0;
+  --pj-text-primary: #c4c6c9;
+  --pj-text-secondary: #a7a9ad;
+  --pj-text-date: #6b7f92;
+  --pj-glass-bg: rgba(37, 45, 56, 0.55);
+  --pj-glass-border: rgba(67, 82, 102, 0.78);
+  --pj-glass-shadow: rgba(0, 0, 0, 0.28);
+  --pj-glass-shadow-hover: rgba(0, 0, 0, 0.36);
+  --pj-tag-bg: #364151;
+  --pj-tag-color: #7aaef5;
+  --pj-btn-code-bg: #374151;
+  --pj-btn-code-hover: #425067;
+  --pj-btn-code-text: #d1d5db;
+  --pj-btn-report-bg: #1e3a5f;
+  --pj-btn-report-hover: #25496f;
+  --pj-btn-report-text: #bfdbfe;
+}
+
+.projects-intro {
+  max-width: 760px;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--pj-text-secondary);
+}
+
+.projects-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 760px;
+  margin: 1.5rem auto 0;
+}
+
+.project-card {
+  background: var(--pj-glass-bg);
+  border: 1px solid var(--pj-glass-border);
+  border-radius: 14px;
+  padding: 1.5rem 1.75rem;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 10px 24px var(--pj-glass-shadow);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.project-card:hover {
+  box-shadow: 0 14px 30px var(--pj-glass-shadow-hover);
+  border-color: color-mix(in srgb, var(--pj-accent) 35%, var(--pj-glass-border) 65%);
+}
+
+.project-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.project-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--pj-text-primary);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.project-date {
+  font-size: 0.8rem;
+  color: var(--pj-text-date);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.project-desc {
+  font-size: 0.92rem;
+  color: var(--pj-text-secondary);
+  line-height: 1.65;
+  margin: 0 0 1rem;
+}
+
+.project-img-wrap {
+  margin: 0.75rem 0 1rem;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.project-img-wrap img {
+  width: 100%;
+  max-height: 260px;
+  object-fit: cover;
+  display: block;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.1rem;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.2em 0.65em;
+  background: var(--pj-tag-bg);
+  color: var(--pj-tag-color);
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 500;
+}
+
+.project-links {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.38em 1em;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-code {
+  background: var(--pj-btn-code-bg);
+  color: var(--pj-btn-code-text);
+  border: 1px solid color-mix(in srgb, var(--pj-btn-code-bg) 72%, var(--pj-btn-code-text) 28%);
+}
+
+.btn-code:hover {
+  background: var(--pj-btn-code-hover);
+  border-color: color-mix(in srgb, var(--pj-btn-code-hover) 68%, var(--pj-btn-code-text) 32%);
+  color: var(--pj-btn-code-text);
+}
+
+.btn-report {
+  background: var(--pj-btn-report-bg);
+  color: var(--pj-btn-report-text);
+  border: 1px solid color-mix(in srgb, var(--pj-btn-report-bg) 68%, var(--pj-btn-report-text) 32%);
+}
+
+.btn-report:hover {
+  background: var(--pj-btn-report-hover);
+  border-color: color-mix(in srgb, var(--pj-btn-report-hover) 64%, var(--pj-btn-report-text) 36%);
+  color: var(--pj-btn-report-text);
+}
+
+  @media (max-width: 600px) {
+  .project-card { padding: 1.2rem 1.25rem; }
+  .project-header { flex-direction: column; gap: 0.2rem; }
+}
+</style>
+
+<% if (page.content && page.content.trim()) { %>
+  <article class="projects-intro"><%- page.content %></article>
+<% } %>
+
+<div class="projects-grid">
+  <% projectPages.forEach(function(project) { %>
+    <% var projectTags = normalizeList(project.tags).map(function(tag) { return tag.name || tag }) %>
+    <% var projectImage = project.project_img || project.index_img || '' %>
+    <% var projectLinks = Array.isArray(project.project_links) ? project.project_links : [] %>
+    <% var projectDescription = project.content || project.description || project.excerpt || '' %>
+    <div class="project-card">
+      <div class="project-header">
+        <h3 class="project-title"><%= project.title || 'Untitled Project' %></h3>
+        <span class="project-date"><%- date(project.date, config.date_format) %></span>
+      </div>
+
+      <p class="project-desc"><%- strip_html(projectDescription).trim().replace(/\n/g, ' ') %></p>
+
+      <% if (projectImage) { %>
+        <div class="project-img-wrap">
+          <img src="<%= url_for(projectImage) %>" alt="<%= project.title || 'Project Preview' %>">
+        </div>
+      <% } %>
+
+      <% if (projectTags.length > 0) { %>
+        <div class="project-tags">
+          <% projectTags.forEach(function(tag) { %>
+            <span class="tag"><%= tag %></span>
+          <% }) %>
+        </div>
+      <% } %>
+
+      <div class="project-links">
+        <% projectLinks.forEach(function(link) { %>
+          <% if (link && link.url) { %>
+            <% var linkVariant = String(link.variant || '').toLowerCase() %>
+            <% var linkClass = linkVariant === 'report' ? 'btn-report' : 'btn-code' %>
+            <% var isExternal = /^(https?:)?\/\//i.test(link.url) %>
+            <a class="btn <%= linkClass %>" href="<%= url_for(link.url) %>" <%= isExternal ? 'target="_blank" rel="noopener"' : '' %>><%= link.label || 'Open Link' %></a>
+          <% } %>
+        <% }) %>
+      </div>
+    </div>
+  <% }) %>
+</div>

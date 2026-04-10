@@ -7,7 +7,19 @@ page.banner_img_height = theme.index.banner_img_height
 page.banner_mask_alpha = theme.index.banner_mask_alpha
 %>
 
-<% page.posts.each(function (post) { %>
+<%
+var recentPosts = page.posts
+if (recentPosts && typeof recentPosts.limit === 'function') {
+  recentPosts = recentPosts.limit(4)
+}
+%>
+
+<div class="home-recent-header">
+  <h2 class="home-recent-title">Recent Blog</h2>
+  <p class="home-recent-subtitle">Latest 4 posts</p>
+</div>
+
+<% recentPosts.each(function (post) { %>
   <div class="row mx-auto index-card">
     <% var post_url = url_for(post.path), index_img = post.index_img || theme.post.default_index_img %>
     <% if (index_img) { %>
@@ -65,6 +77,26 @@ page.banner_mask_alpha = theme.index.banner_mask_alpha
 <%- partial('_partials/paginator') %>
 
 <style>
+.home-recent-header {
+  margin: 0 0 1rem;
+  padding-bottom: 0.55rem;
+  border-bottom: 1px solid var(--line-color, #d0d7de);
+}
+
+.home-recent-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-color, #2f4154);
+  letter-spacing: 0.01em;
+}
+
+.home-recent-subtitle {
+  margin: 0.22rem 0 0;
+  font-size: 0.82rem;
+  color: var(--sec-text-color, #5c6b77);
+}
+
 .home-explore {
   margin-top: 3.25rem;
 }
@@ -98,7 +130,53 @@ page.banner_mask_alpha = theme.index.banner_mask_alpha
   text-decoration: underline;
 }
 
-.home-explore-tags {
+.home-explore-modes {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.28rem;
+  border-radius: 12px;
+  border: 1px solid var(--line-color, #d0d7de);
+  background: color-mix(in srgb, var(--board-bg-color, #fff) 82%, var(--line-color, #d0d7de) 18%);
+  margin-bottom: 0.95rem;
+}
+
+.ex-mode-btn {
+  appearance: none;
+  border: none;
+  border-radius: 9px;
+  padding: 0.38rem 0.78rem;
+  font-size: 0.86rem;
+  line-height: 1.2;
+  font-weight: 600;
+  color: var(--sec-text-color, #5c6b77);
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 0.18s ease, color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.ex-mode-btn:hover {
+  color: var(--text-color, #2f4154);
+}
+
+.ex-mode-btn.is-active {
+  color: var(--text-color, #2f4154);
+  background: var(--board-bg-color, #fff);
+  box-shadow: 0 1px 0 rgba(15, 23, 42, 0.05), 0 1px 6px rgba(15, 23, 42, 0.08);
+}
+
+html[data-user-color-scheme='dark'] .ex-mode-btn.is-active {
+  color: #dbeafe;
+  background: rgba(96, 165, 250, 0.22);
+  box-shadow: inset 0 0 0 1px rgba(147, 197, 253, 0.35);
+}
+
+.ex-mode-btn:focus-visible {
+  outline: 2px solid var(--link-hover-color, #1e40af);
+  outline-offset: 2px;
+}
+
+.home-explore-filters {
   display: flex;
   flex-wrap: wrap;
   gap: 0.65rem;
@@ -206,9 +284,20 @@ page.banner_mask_alpha = theme.index.banner_mask_alpha
   color: #1d4ed8;
 }
 
+html[data-user-color-scheme='dark'] .ex-badge-blog {
+  background: rgba(96, 165, 250, 0.2);
+  /* color: #93c5fd; */
+  color: #1c59ff;
+}
+
 .ex-badge-project {
-  background: rgba(15, 23, 42, 0.12);
-  color: #0f172a;
+  background: rgba(245, 158, 11, 0.2);
+  color: #b45309;
+}
+
+html[data-user-color-scheme='dark'] .ex-badge-project {
+  background: rgba(251, 191, 36, 0.2);
+  color: #fbbf24;
 }
 
 .ex-card-date {
@@ -265,48 +354,38 @@ page.banner_mask_alpha = theme.index.banner_mask_alpha
 
 <%
   var explorePosts = site.posts.sort('-date');
+  var isTypeTag = function(tagName) {
+    var lowered = String(tagName || '').toLowerCase();
+    return lowered === 'blog' || lowered === 'projects' || lowered === 'project';
+  };
   var rawExploreProjects = site.data.home_explore_projects || [];
   var exploreProjects = rawExploreProjects.map(function(project) {
-    var normalizedTags = Array.isArray(project.tags) ? project.tags : [];
+    var normalizedTags = Array.isArray(project.tags) ? project.tags.filter(function(tagName) {
+      return isTypeTag(tagName) === false;
+    }) : [];
+    var normalizedCategories = Array.isArray(project.categories) ? project.categories : [];
     return {
       title: project.title || 'Untitled Project',
       url: project.url ? url_for(project.url) : url_for('/projects/'),
       img: project.img ? url_for(project.img) : '',
       date: project.date || '',
       desc: project.desc || '',
-      tags: normalizedTags
+      tags: normalizedTags,
+      categories: normalizedCategories
     };
   });
-  var reservedExploreTags = { blog: true, projects: true };
 %>
 
 <section class="home-explore">
   <h2 class="home-explore-heading">Explore</h2>
-  <p class="home-explore-intro">Browse all posts and projects by tag. Click a tag to filter.</p>
+  <p class="home-explore-intro">Browse all posts and projects by tag or category.</p>
 
-  <div class="home-explore-links">
-    <a class="home-explore-link" href="<%= url_for('/tags/') %>">All Tags</a>
-    <a class="home-explore-link" href="<%= url_for('/projects/') %>">All Projects</a>
+  <div class="home-explore-modes" id="home-explore-modes">
+    <button class="ex-mode-btn is-active" type="button" data-mode="tag">Tag</button>
+    <button class="ex-mode-btn" type="button" data-mode="category">Category</button>
   </div>
 
-  <div class="home-explore-tags" id="home-explore-tags">
-    <button class="ex-pill is-active" type="button" data-tag="" data-label="All">
-      All <span class="ex-pill-count">· <%= explorePosts.length + exploreProjects.length %></span>
-    </button>
-    <button class="ex-pill" type="button" data-tag="blog" data-label="blog">
-      blog <span class="ex-pill-count">· <%= explorePosts.length %></span>
-    </button>
-    <button class="ex-pill" type="button" data-tag="projects" data-label="projects">
-      projects <span class="ex-pill-count">· <%= exploreProjects.length %></span>
-    </button>
-    <% site.tags.sort('name').each(function(tag) { %>
-      <% var loweredTagName = tag.name.toLowerCase() %>
-      <% if (reservedExploreTags[loweredTagName] !== true) { %>
-        <button class="ex-pill" type="button" data-tag="<%= encodeURIComponent(tag.name) %>" data-label="<%= tag.name %>">
-          <%= tag.name %> <span class="ex-pill-count">· <%= tag.length %></span>
-        </button>
-      <% } %>
-    <% }) %>
+  <div class="home-explore-filters" id="home-explore-tags">
   </div>
 
   <p class="home-explore-status" id="home-explore-status">Showing all items.</p>
@@ -315,8 +394,9 @@ page.banner_mask_alpha = theme.index.banner_mask_alpha
     <% explorePosts.each(function(post) { %>
       <% var explorePostUrl = url_for(post.path) %>
       <% var explorePostImg = post.index_img || theme.post.default_index_img %>
-      <% var explorePostTags = ['blog'].concat(post.tags.map(function(tag) { return tag.name })) %>
-      <a class="ex-card" href="<%= explorePostUrl %>" target="<%- theme.index.post_url_target %>" data-tags="<%= explorePostTags.map(function(tagName) { return encodeURIComponent(tagName) }).join(' ') %>">
+      <% var explorePostTags = post.tags.map(function(tag) { return tag.name }).filter(function(tagName) { return isTypeTag(tagName) === false }) %>
+      <% var explorePostCategories = post.categories.map(function(category) { return category.name }) %>
+      <a class="ex-card" href="<%= explorePostUrl %>" target="<%- theme.index.post_url_target %>" data-tags="<%= explorePostTags.map(function(tagName) { return encodeURIComponent(tagName) }).join(' ') %>" data-categories="<%= explorePostCategories.map(function(categoryName) { return encodeURIComponent(categoryName) }).join(' ') %>">
         <% if (explorePostImg) { %>
           <img class="ex-card-img" src="<%= url_for(explorePostImg) %>" alt="<%= post.title %>" loading="lazy">
         <% } %>
@@ -330,18 +410,19 @@ page.banner_mask_alpha = theme.index.banner_mask_alpha
           <p class="ex-card-desc">
             <%- strip_html(explorePostExcerpt).substring(0, 140).trim().replace(/\n/g, ' ') %>
           </p>
-          <div class="ex-card-tags">
-            <span class="ex-card-tag">blog</span>
-            <% post.tags.limit(3).each(function(tag){ %>
-              <span class="ex-card-tag"><%- tag.name %></span>
-            <% }) %>
-          </div>
+          <% if (explorePostTags.length > 0) { %>
+            <div class="ex-card-tags">
+              <% explorePostTags.slice(0, 3).forEach(function(tagName){ %>
+                <span class="ex-card-tag"><%- tagName %></span>
+              <% }) %>
+            </div>
+          <% } %>
         </div>
       </a>
     <% }) %>
 
     <% exploreProjects.forEach(function(project) { %>
-      <a class="ex-card" href="<%= project.url %>" data-tags="<%= project.tags.map(function(tagName) { return encodeURIComponent(tagName) }).join(' ') %>">
+      <a class="ex-card" href="<%= project.url %>" data-tags="<%= project.tags.map(function(tagName) { return encodeURIComponent(tagName) }).join(' ') %>" data-categories="<%= project.categories.map(function(categoryName) { return encodeURIComponent(categoryName) }).join(' ') %>">
         <% if (project.img) { %>
           <img class="ex-card-img" src="<%= project.img %>" alt="<%= project.title %>" loading="lazy">
         <% } %>
@@ -352,11 +433,13 @@ page.banner_mask_alpha = theme.index.banner_mask_alpha
           </div>
           <h3 class="ex-card-title"><%= project.title %></h3>
           <p class="ex-card-desc"><%= project.desc %></p>
-          <div class="ex-card-tags">
-            <% project.tags.slice(0, 4).forEach(function(tagName) { %>
-              <span class="ex-card-tag"><%= tagName %></span>
-            <% }) %>
-          </div>
+          <% if (project.tags.length > 0) { %>
+            <div class="ex-card-tags">
+              <% project.tags.slice(0, 4).forEach(function(tagName) { %>
+                <span class="ex-card-tag"><%= tagName %></span>
+              <% }) %>
+            </div>
+          <% } %>
         </div>
       </a>
     <% }) %>
@@ -365,11 +448,14 @@ page.banner_mask_alpha = theme.index.banner_mask_alpha
 
 <script>
   (function() {
+    var modeBar = document.getElementById('home-explore-modes');
     var tagBar = document.getElementById('home-explore-tags');
     var status = document.getElementById('home-explore-status');
     var cards = Array.prototype.slice.call(document.querySelectorAll('#home-explore-results .ex-card'));
+    var currentMode = 'tag';
+    var currentValue = '';
 
-    if (tagBar === null || status === null || cards.length === 0) return;
+    if (modeBar === null || tagBar === null || status === null || cards.length === 0) return;
 
     function decodeTag(tag) {
       if (tag === undefined || tag === null || tag === '') return '';
@@ -380,37 +466,96 @@ page.banner_mask_alpha = theme.index.banner_mask_alpha
       }
     }
 
-    function applyFilter(tagValue, label) {
+    function getCardValues(card, mode) {
+      var source = mode === 'category' ? card.dataset.categories : card.dataset.tags;
+      return (source || '').split(' ').filter(Boolean);
+    }
+
+    function getCountMap(mode) {
+      var countMap = {};
+      cards.forEach(function(card) {
+        getCardValues(card, mode).forEach(function(encodedValue) {
+          countMap[encodedValue] = (countMap[encodedValue] || 0) + 1;
+        });
+      });
+      return countMap;
+    }
+
+    function renderFilterBar(mode) {
+      var countMap = getCountMap(mode);
+      var totalCount = cards.length;
+      var sortedValues = Object.keys(countMap).sort(function(a, b) {
+        if (countMap[b] !== countMap[a]) return countMap[b] - countMap[a];
+        return decodeTag(a).localeCompare(decodeTag(b));
+      });
+
+      tagBar.innerHTML = '';
+
+      var allButton = document.createElement('button');
+      allButton.className = 'ex-pill';
+      allButton.type = 'button';
+      allButton.dataset.value = '';
+      allButton.dataset.label = 'All';
+      allButton.innerHTML = 'All <span class="ex-pill-count">· ' + totalCount + '</span>';
+      tagBar.appendChild(allButton);
+
+      sortedValues.forEach(function(encodedValue) {
+        var label = decodeTag(encodedValue);
+        var button = document.createElement('button');
+        button.className = 'ex-pill';
+        button.type = 'button';
+        button.dataset.value = encodedValue;
+        button.dataset.label = label;
+        button.innerHTML = label + ' <span class="ex-pill-count">· ' + countMap[encodedValue] + '</span>';
+        tagBar.appendChild(button);
+      });
+    }
+
+    function applyFilter(value, label) {
       var visibleCount = 0;
-      var activeLabel = label || decodeTag(tagValue) || 'All';
+      var activeLabel = label || decodeTag(value) || 'All';
 
       Array.prototype.forEach.call(tagBar.querySelectorAll('.ex-pill'), function(button) {
-        button.classList.toggle('is-active', button.dataset.tag === tagValue);
+        button.classList.toggle('is-active', (button.dataset.value || '') === value);
       });
 
       cards.forEach(function(card) {
-        var tags = (card.dataset.tags || '').split(' ').filter(Boolean);
-        var show = (tagValue === '' || tags.indexOf(tagValue) !== -1);
+        var values = getCardValues(card, currentMode);
+        var show = (value === '' || values.indexOf(value) !== -1);
         card.classList.toggle('is-hidden', show === false);
         if (show === true) visibleCount += 1;
       });
 
-      if (tagValue === '') {
-        status.textContent = 'Showing all items (' + visibleCount + ').';
+      if (value === '') {
+        status.textContent = 'Showing all items (' + visibleCount + ') by ' + currentMode + '.';
         return;
       }
 
       status.textContent = visibleCount > 0
-        ? 'Showing ' + visibleCount + ' item' + (visibleCount > 1 ? 's' : '') + ' tagged with "' + activeLabel + '".'
-        : 'No items found for "' + activeLabel + '".';
+        ? 'Showing ' + visibleCount + ' item' + (visibleCount > 1 ? 's' : '') + ' by ' + currentMode + ' "' + activeLabel + '".'
+        : 'No items found for ' + currentMode + ' "' + activeLabel + '".';
     }
 
     tagBar.addEventListener('click', function(event) {
       var button = event.target.closest('.ex-pill');
       if (button === null) return;
-      applyFilter(button.dataset.tag || '', button.dataset.label || '');
+      currentValue = button.dataset.value || '';
+      applyFilter(currentValue, button.dataset.label || '');
     });
 
+    modeBar.addEventListener('click', function(event) {
+      var button = event.target.closest('.ex-mode-btn');
+      if (button === null) return;
+      currentMode = button.dataset.mode || 'tag';
+      currentValue = '';
+      Array.prototype.forEach.call(modeBar.querySelectorAll('.ex-mode-btn'), function(modeButton) {
+        modeButton.classList.toggle('is-active', modeButton.dataset.mode === currentMode);
+      });
+      renderFilterBar(currentMode);
+      applyFilter('', 'All');
+    });
+
+    renderFilterBar(currentMode);
     applyFilter('', 'All');
   })();
 </script>
