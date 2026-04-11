@@ -352,7 +352,7 @@ navbar:
   # Navigation bar menu. `key` is used to associate languages/*.yml. If there is no association, the value of `key` itself will be displayed; if `icon` is a css class, it can be omitted; adding `name` can force the display of the specified name
   menu: # https://hexo.fluid-dev.com/docs/guide/#%E5%8D%9A%E5%AE%A2%E6%A0%87%E9%A2%98
     - { key: "Home", link: "/", icon: "iconfont icon-th-large" }
-    - { key: "Blogs", link: "/archives/", icon: "iconfont icon-books" }
+    - { key: "Blogs", link: "/blogs/", icon: "iconfont icon-books" }
     - { key: "Projects", link: "/projects/", icon: "iconfont icon-briefcase" }
     - { key: "About", link: "/about/", icon: "iconfont icon-note" }
     #- { key: "links", link: "/links/", icon: "iconfont icon-link-fill" }
