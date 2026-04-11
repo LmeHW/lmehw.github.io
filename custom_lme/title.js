@@ -1,7 +1,7 @@
 // 浏览器搞笑标题
 var OriginTitle = document.title;
 var titleTime;
-var siteIcon = '/img/portrait.png';
+var siteIcon = '/img/portrait.ico';
 document.addEventListener('visibilitychange', function() {
 	if (document.hidden) {
 		$('[rel="icon"]').attr('href', siteIcon);
