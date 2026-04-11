@@ -58,3 +58,87 @@ html[data-user-color-scheme='dark'] .sidebar #toc .tocbot-link {
 html[data-user-color-scheme='dark'] .sidebar #toc .tocbot-active-link {
   color: #93c5fd;
 }
+
+/* ── Blogs (Archive) page refresh ─────────────────────────────── */
+.archive-page-modern .archive-clean-list > .h4 {
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  color: var(--text-color, #1e293b);
+}
+
+.archive-page-modern .archive-clean-list > .h5 {
+  margin: 1.2rem 0 0.45rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--sec-text-color, #475569);
+  letter-spacing: 0.02em;
+}
+
+.archive-page-modern .archive-clean-list hr {
+  margin: 0.45rem 0 0.9rem;
+}
+
+.archive-page-modern .archive-clean-list .archive-clean-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.56rem;
+  padding: 0.52rem 0.78rem;
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  border-radius: 999px;
+  box-shadow: none !important;
+  text-decoration: none;
+  transition: color 0.18s ease, border-color 0.18s ease;
+}
+
+.archive-page-modern .archive-clean-list .archive-clean-item time {
+  flex: 0 0 5rem;
+  color: var(--sec-text-color, #475569);
+  font-weight: 600;
+}
+
+.archive-page-modern .archive-clean-list .archive-clean-item .archive-clean-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--text-color, #1e293b);
+  font-weight: 500;
+}
+
+.archive-page-modern .archive-clean-list .archive-clean-item:hover,
+.archive-page-modern .archive-clean-list .archive-clean-item:focus-visible {
+  color: var(--link-hover-color, #1e40af);
+  border-color: var(--link-hover-color, #1e40af) !important;
+}
+
+.archive-page-modern .archive-clean-list .archive-clean-item:hover .archive-clean-title,
+.archive-page-modern .archive-clean-list .archive-clean-item:focus-visible .archive-clean-title {
+  text-decoration: none;
+}
+
+/* ── Footer text color in light mode ───────────────────────────── */
+@media (prefers-color-scheme: light) {
+  html:not([data-user-color-scheme='dark']) footer,
+  html:not([data-user-color-scheme='dark']) footer a,
+  html:not([data-user-color-scheme='dark']) footer p,
+  html:not([data-user-color-scheme='dark']) footer span {
+    color: #ffffff !important;
+  }
+}
+
+html[data-user-color-scheme='light'] footer,
+html[data-user-color-scheme='light'] footer a,
+html[data-user-color-scheme='light'] footer p,
+html[data-user-color-scheme='light'] footer span {
+  color: #ffffff !important;
+}
+
+@media (max-width: 575px) {
+  .archive-page-modern .archive-clean-list .archive-clean-item {
+    font-size: 0.95rem;
+  }
+  .archive-page-modern .archive-clean-list .archive-clean-item time {
+    flex: 0 0 4rem;
+  }
+}
